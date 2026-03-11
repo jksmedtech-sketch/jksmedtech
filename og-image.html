@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1200px;
+    height: 630px;
+    background: linear-gradient(135deg, #050a12 0%, #0a1628 50%, #050a12 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', sans-serif;
+    overflow: hidden;
+    position: relative;
+  }
+  .grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,212,200,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,212,200,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .glow1 {
+    position: absolute;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(0,212,200,0.12), transparent 70%);
+    top: -100px; left: -100px;
+  }
+  .glow2 {
+    position: absolute;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(201,168,76,0.1), transparent 70%);
+    bottom: -80px; right: -80px;
+  }
+  .content {
+    position: relative;
+    text-align: center;
+    z-index: 1;
+  }
+  .brand {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: #00d4c8;
+    margin-bottom: 20px;
+  }
+  .title {
+    font-size: 52px;
+    font-weight: 800;
+    color: #f0f4f8;
+    line-height: 1.2;
+    margin-bottom: 24px;
+  }
+  .title em {
+    font-style: italic;
+    color: #c9a84c;
+  }
+  .sub {
+    font-size: 20px;
+    color: #8a8f98;
+    max-width: 700px;
+    margin: 0 auto 32px;
+    line-height: 1.5;
+  }
+  .products {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+  }
+  .pill {
+    padding: 10px 28px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+  .pill-teal {
+    background: rgba(0,212,200,0.15);
+    border: 1px solid rgba(0,212,200,0.3);
+    color: #00d4c8;
+  }
+  .pill-gold {
+    background: rgba(201,168,76,0.15);
+    border: 1px solid rgba(201,168,76,0.3);
+    color: #c9a84c;
+  }
+</style>
+</head>
+<body>
+  <div class="grid"></div>
+  <div class="glow1"></div>
+  <div class="glow2"></div>
+  <div class="content">
+    <div class="brand">JKS Medtech Pvt Ltd</div>
+    <div class="title">Where <em>Clinical</em> Meets<br>Digital Brilliance</div>
+    <div class="sub">Purpose-built SaaS for India's healthcare ecosystem</div>
+    <div class="products">
+      <div class="pill pill-teal">DigiDoc — Cloud Hospital</div>
+      <div class="pill pill-gold">Docademy — Medical LMS</div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,3123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JKS Medtech Pvt Ltd — Powering the Future of Healthcare</title>
+<meta name="description" content="JKS Medtech builds DigiDoc (cloud hospital HMS) and Docademy (medical e-learning LMS) — purpose-built SaaS for India's healthcare ecosystem.">
+<meta property="og:title" content="JKS Medtech Pvt Ltd — Powering the Future of Healthcare">
+<meta property="og:description" content="Two flagship SaaS products — DigiDoc cloud hospital platform and Docademy medical e-learning — purpose-built for India's healthcare ecosystem.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jksmedtech.com/">
+<meta property="og:image" content="https://jksmedtech.com/og-image.png">
+<meta property="og:locale" content="en_IN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://jksmedtech.com/og-image.png">
+<link rel="canonical" href="https://jksmedtech.com/">
+<meta name="twitter:title" content="JKS Medtech — Where Clinical Meets Digital Brilliance">
+<meta name="twitter:description" content="DigiDoc + Docademy: Cloud hospital management and medical e-learning built for India.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' width='100' height='100' fill='%23050a12'/><text x='50' y='68' font-size='50' text-anchor='middle' fill='%2300d4c8' font-family='sans-serif' font-weight='bold'>J</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #050a12;
+    --bg2: #070e1a;
+    --navy: #0a1628;
+    --teal: #00d4c8;
+    --teal-dim: rgba(0,212,200,0.12);
+    --teal-mid: rgba(0,212,200,0.4);
+    --gold: #c9a84c;
+    --gold-dim: rgba(201,168,76,0.15);
+    --gold-light: #e8c96a;
+    --white: #f0f4f8;
+    --muted: #7a8fa8;
+    --glass: rgba(255,255,255,0.04);
+    --glass-border: rgba(255,255,255,0.08);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  /* ── SCROLL PROGRESS ── */
+  .scroll-progress {
+    position: fixed;
+    top: 0; left: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--teal), var(--gold-light));
+    z-index: 200;
+    width: 0%;
+    transition: width 0.1s linear;
+  }
+
+  /* ── CURSOR GLOW ── */
+  .cursor-glow {
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,212,200,0.04) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s;
+  }
+
+  /* ── CANVAS BACKGROUND ── */
+  #canvas-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 20px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(5,10,18,0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--glass-border);
+    transition: all 0.3s;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+
+  .logo-mark {
+    width: 38px;
+    height: 38px;
+    position: relative;
+  }
+
+  .logo-mark svg { width: 100%; height: 100%; }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+
+  .logo-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 17px;
+    letter-spacing: 0.08em;
+    color: var(--white);
+  }
+
+  .logo-sub {
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    color: var(--teal);
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    font-weight: 400;
+    transition: color 0.3s;
+    position: relative;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--teal);
+    transition: width 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--white); }
+  .nav-links a:hover::after { width: 100%; }
+
+  .nav-cta {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+
+  /* ── HAMBURGER ── */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 8px;
+    z-index: 110;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--white);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+  .hamburger.active span:nth-child(2) { opacity: 0; }
+  .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+  /* ── MOBILE MENU ── */
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 99;
+    background: rgba(5,10,18,0.97);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s;
+  }
+
+  .mobile-menu.open {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .mobile-menu a {
+    text-decoration: none;
+    font-family: 'Syne', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--muted);
+    transition: color 0.3s;
+    letter-spacing: 0.02em;
+  }
+
+  .mobile-menu a:hover { color: var(--teal); }
+
+  .mobile-menu .mobile-cta {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 20px;
+    align-items: center;
+  }
+
+  .btn-ghost {
+    padding: 9px 22px;
+    border: 1px solid var(--glass-border);
+    border-radius: 6px;
+    background: transparent;
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+  }
+
+  .btn-ghost:hover { border-color: var(--teal); color: var(--teal); }
+
+  .btn-primary {
+    padding: 9px 22px;
+    border-radius: 6px;
+    background: var(--teal);
+    border: none;
+    color: #050a12;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+  }
+
+  .btn-primary:hover { background: #00efe0; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,212,200,0.3); }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 40px 80px;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--teal-dim);
+    border: 1px solid rgba(0,212,200,0.2);
+    padding: 6px 18px;
+    border-radius: 100px;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal);
+    font-weight: 500;
+    margin-bottom: 32px;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--teal);
+    animation: pulse-dot 2s ease infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.6); }
+  }
+
+  .hero-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 8vw, 110px);
+    font-weight: 300;
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    max-width: 900px;
+    margin-bottom: 12px;
+    animation: fadeUp 0.8s 0.1s ease both;
+  }
+
+  .hero-headline em {
+    font-style: normal;
+    color: var(--teal);
+    position: relative;
+  }
+
+  .hero-headline em::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--teal), transparent);
+    opacity: 0.4;
+  }
+
+  .hero-headline .gold {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .hero-sub {
+    font-size: clamp(15px, 2vw, 18px);
+    color: var(--muted);
+    max-width: 560px;
+    margin: 20px auto 48px;
+    font-weight: 300;
+    line-height: 1.7;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+
+  .btn-large {
+    padding: 14px 36px;
+    font-size: 14px;
+    border-radius: 8px;
+    font-weight: 600;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 60px;
+    margin-top: 80px;
+    animation: fadeUp 0.8s 0.5s ease both;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .stat-item { text-align: center; }
+
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .stat-num span { color: var(--teal); }
+
+  .stat-label {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 36px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--muted);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    animation: fadeUp 1s 0.8s ease both;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 48px;
+    background: linear-gradient(to bottom, var(--teal), transparent);
+    animation: scroll-anim 2s ease infinite;
+  }
+
+  @keyframes scroll-anim {
+    0% { transform: scaleY(0); transform-origin: top; }
+    50% { transform: scaleY(1); transform-origin: top; }
+    51% { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+  }
+
+  /* ── SECTION ── */
+  section {
+    position: relative;
+    z-index: 1;
+  }
+
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--teal);
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 5vw, 60px);
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+
+  .section-subtitle {
+    font-size: 16px;
+    color: var(--muted);
+    font-weight: 300;
+    line-height: 1.7;
+    max-width: 600px;
+    margin-top: 16px;
+  }
+
+  .section-subtitle.centered { margin-left: auto; margin-right: auto; }
+
+  /* ── PRODUCTS ── */
+  .products {
+    padding: 120px 60px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .products-header {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+
+  .product-card {
+    position: relative;
+    border-radius: 20px;
+    padding: 56px 52px;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    cursor: pointer;
+  }
+
+  .product-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+
+  .product-card.digidoc::before {
+    background: radial-gradient(ellipse at 20% 20%, rgba(0,212,200,0.08) 0%, transparent 70%);
+  }
+
+  .product-card.docademy::before {
+    background: radial-gradient(ellipse at 80% 20%, rgba(201,168,76,0.08) 0%, transparent 70%);
+  }
+
+  .product-card:hover::before { opacity: 1; }
+
+  .product-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(255,255,255,0.14);
+  }
+
+  .product-card.digidoc:hover { box-shadow: 0 40px 80px rgba(0,212,200,0.1), 0 0 0 1px rgba(0,212,200,0.15); }
+  .product-card.docademy:hover { box-shadow: 0 40px 80px rgba(201,168,76,0.1), 0 0 0 1px rgba(201,168,76,0.15); }
+
+  .card-bg-text {
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    font-family: 'Syne', sans-serif;
+    font-size: 140px;
+    font-weight: 800;
+    line-height: 1;
+    opacity: 0.03;
+    letter-spacing: -5px;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .product-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 14px;
+    border-radius: 100px;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+
+  .badge-teal { background: var(--teal-dim); color: var(--teal); border: 1px solid rgba(0,212,200,0.25); }
+  .badge-gold { background: var(--gold-dim); color: var(--gold-light); border: 1px solid rgba(201,168,76,0.25); }
+
+  .product-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 28px;
+    font-size: 28px;
+  }
+
+  .icon-teal { background: var(--teal-dim); border: 1px solid rgba(0,212,200,0.2); }
+  .icon-gold { background: var(--gold-dim); border: 1px solid rgba(201,168,76,0.2); }
+
+  .product-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 38px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+
+  .name-teal { color: var(--teal); }
+  .name-gold { color: var(--gold-light); }
+
+  .product-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--white);
+    margin-bottom: 20px;
+    line-height: 1.3;
+  }
+
+  .product-desc {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 40px;
+    font-weight: 300;
+  }
+
+  .feature-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 44px;
+  }
+
+  .feature-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .feature-list li::before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+    font-size: 10px;
+  }
+
+  .check-teal::before { background: var(--teal-dim); border: 1px solid var(--teal); content: '\2713'; color: var(--teal); font-weight: 700; font-size: 9px; display: flex; align-items: center; justify-content: center; }
+  .check-gold::before { background: var(--gold-dim); border: 1px solid var(--gold); content: '\2713'; color: var(--gold-light); font-weight: 700; font-size: 9px; display: flex; align-items: center; justify-content: center; }
+
+  .card-actions {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+  }
+
+  .btn-teal {
+    padding: 11px 28px;
+    border-radius: 8px;
+    background: var(--teal);
+    border: none;
+    color: #050a12;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+  }
+
+  .btn-teal:hover { background: #00efe0; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,212,200,0.3); }
+
+  .btn-gold {
+    padding: 11px 28px;
+    border-radius: 8px;
+    background: var(--gold);
+    border: none;
+    color: #050a12;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+  }
+
+  .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,168,76,0.3); }
+
+  .btn-text-teal {
+    background: none;
+    border: none;
+    color: var(--teal);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: gap 0.3s;
+  }
+
+  .btn-text-teal:hover { gap: 10px; }
+
+  .btn-text-gold {
+    background: none;
+    border: none;
+    color: var(--gold-light);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: gap 0.3s;
+  }
+
+  .btn-text-gold:hover { gap: 10px; }
+
+  .product-divider {
+    width: 40px;
+    height: 3px;
+    border-radius: 2px;
+    margin-bottom: 32px;
+  }
+
+  .divider-teal { background: linear-gradient(to right, var(--teal), transparent); }
+  .divider-gold { background: linear-gradient(to right, var(--gold), transparent); }
+
+  /* ── DIVIDER ── */
+  .divider-line {
+    max-width: 1280px;
+    margin: 0 auto;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--glass-border), transparent);
+  }
+
+  /* ── HOW IT WORKS ── */
+  .how-section {
+    padding: 120px 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .how-header {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+
+  .how-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    position: relative;
+  }
+
+  .how-steps::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 12.5%;
+    right: 12.5%;
+    height: 1px;
+    background: linear-gradient(90deg, var(--teal), var(--gold-light), var(--teal));
+    opacity: 0.3;
+  }
+
+  .step-item {
+    text-align: center;
+    position: relative;
+    padding: 0 16px;
+  }
+
+  .step-number {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    font-family: 'Syne', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--teal);
+    position: relative;
+    z-index: 2;
+    transition: all 0.4s;
+  }
+
+  .step-item:nth-child(even) .step-number { color: var(--gold-light); }
+
+  .step-item:hover .step-number {
+    border-color: var(--teal);
+    background: var(--teal-dim);
+    transform: scale(1.1);
+  }
+
+  .step-item:nth-child(even):hover .step-number {
+    border-color: var(--gold);
+    background: var(--gold-dim);
+  }
+
+  .step-icon {
+    font-size: 32px;
+    margin-bottom: 16px;
+  }
+
+  .step-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 10px;
+    color: var(--white);
+  }
+
+  .step-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* ── WHY JKS ── */
+  .why-section {
+    padding: 120px 60px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    margin-top: 60px;
+  }
+
+  .why-visual {
+    position: relative;
+    height: 480px;
+  }
+
+  .orb-container {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .orb-outer {
+    width: 340px;
+    height: 340px;
+    border-radius: 50%;
+    border: 1px solid rgba(0,212,200,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    animation: orb-rotate 20s linear infinite;
+  }
+
+  .orb-mid {
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    border: 1px solid rgba(0,212,200,0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: orb-rotate 15s linear infinite reverse;
+  }
+
+  .orb-inner {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,212,200,0.15) 0%, rgba(0,212,200,0.03) 60%, transparent 100%);
+    border: 1px solid rgba(0,212,200,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--teal);
+    letter-spacing: 0.1em;
+    text-align: center;
+  }
+
+  .orbit-dot {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--teal);
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 12px var(--teal);
+  }
+
+  .orbit-dot-gold {
+    background: var(--gold);
+    box-shadow: 0 0 12px var(--gold);
+    top: auto;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+  }
+
+  @keyframes orb-rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+  .floating-chips {
+    position: absolute;
+    inset: 0;
+  }
+
+  .chip {
+    position: absolute;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-size: 11px;
+    font-weight: 500;
+    white-space: nowrap;
+    backdrop-filter: blur(10px);
+    animation: chip-float 4s ease-in-out infinite;
+  }
+
+  .chip:nth-child(1) { top: 8%; left: 5%; animation-delay: 0s; }
+  .chip:nth-child(2) { top: 15%; right: 5%; animation-delay: 0.8s; color: var(--teal); border-color: rgba(0,212,200,0.2); }
+  .chip:nth-child(3) { bottom: 20%; left: 0%; animation-delay: 1.6s; color: var(--gold-light); border-color: rgba(201,168,76,0.2); }
+  .chip:nth-child(4) { bottom: 8%; right: 5%; animation-delay: 2.4s; }
+
+  @keyframes chip-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  .why-points {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .why-point {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 24px;
+    border-radius: 14px;
+    border: 1px solid transparent;
+    transition: all 0.4s;
+  }
+
+  .why-point:hover {
+    background: var(--glass);
+    border-color: var(--glass-border);
+  }
+
+  .why-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: var(--teal-dim);
+    border: 1px solid rgba(0,212,200,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .why-point-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 6px;
+    color: var(--white);
+  }
+
+  .why-point-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials {
+    padding: 100px 60px;
+    background: linear-gradient(180deg, transparent 0%, rgba(0,212,200,0.02) 50%, transparent 100%);
+  }
+
+  .testimonials-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .testimonials-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .testimonial-card {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 32px;
+    transition: all 0.4s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .testimonial-card::before {
+    content: '\201C';
+    position: absolute;
+    top: -10px;
+    left: 24px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 100px;
+    color: var(--teal);
+    opacity: 0.12;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .testimonial-card:hover {
+    border-color: rgba(0,212,200,0.15);
+    transform: translateY(-4px);
+  }
+
+  .testimonial-stars {
+    display: flex;
+    gap: 3px;
+    margin-bottom: 16px;
+    font-size: 14px;
+    color: var(--gold-light);
+  }
+
+  .testimonial-text {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 24px;
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .author-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--teal-dim), var(--gold-dim));
+    border: 1px solid var(--glass-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--teal);
+  }
+
+  .author-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--white);
+  }
+
+  .author-role {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+  /* ── TRUSTED BY ── */
+  .trusted-section {
+    padding: 60px 60px;
+    max-width: 1400px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .trusted-label {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 40px;
+  }
+
+  .trusted-logos {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .trusted-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    letter-spacing: 0.05em;
+    color: rgba(255,255,255,0.18);
+    transition: color 0.3s;
+  }
+
+  .trusted-logo:hover { color: rgba(255,255,255,0.5); }
+
+  /* ── PRICING ── */
+  .pricing-section {
+    padding: 120px 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .pricing-header {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+
+  .pricing-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 28px;
+  }
+
+  .pricing-toggle span {
+    font-size: 13px;
+    color: var(--muted);
+    transition: color 0.3s;
+  }
+
+  .pricing-toggle span.active { color: var(--white); }
+
+  .toggle-switch {
+    width: 48px;
+    height: 26px;
+    border-radius: 13px;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s;
+  }
+
+  .toggle-switch::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--teal);
+    transition: transform 0.3s;
+  }
+
+  .toggle-switch.annual::after { transform: translateX(22px); }
+  .toggle-switch.annual { border-color: rgba(0,212,200,0.3); }
+
+  .save-badge {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    background: var(--gold-dim);
+    color: var(--gold-light);
+    border: 1px solid rgba(201,168,76,0.25);
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-weight: 600;
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    align-items: start;
+  }
+
+  .pricing-card {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 40px 36px;
+    transition: all 0.4s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pricing-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255,255,255,0.12);
+  }
+
+  .pricing-card.featured {
+    border-color: rgba(0,212,200,0.3);
+    background: linear-gradient(180deg, rgba(0,212,200,0.06) 0%, var(--glass) 40%);
+  }
+
+  .pricing-card.featured::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--teal), var(--gold-light));
+  }
+
+  .pricing-popular {
+    display: inline-block;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--teal);
+    background: var(--teal-dim);
+    border: 1px solid rgba(0,212,200,0.2);
+    padding: 4px 12px;
+    border-radius: 100px;
+    margin-bottom: 20px;
+  }
+
+  .pricing-plan {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+
+  .pricing-desc {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 24px;
+    line-height: 1.6;
+  }
+
+  .pricing-amount {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    margin-bottom: 8px;
+  }
+
+  .pricing-currency {
+    font-family: 'Syne', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--muted);
+  }
+
+  .pricing-value {
+    font-family: 'Syne', sans-serif;
+    font-size: 48px;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .pricing-period {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .pricing-note {
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 28px;
+  }
+
+  .pricing-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  .pricing-features li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .pricing-features li::before {
+    content: '\2713';
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--teal-dim);
+    border: 1px solid rgba(0,212,200,0.2);
+    color: var(--teal);
+    font-size: 9px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .pricing-btn {
+    display: block;
+    width: 100%;
+    padding: 13px;
+    border-radius: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .pricing-btn-outline {
+    background: transparent;
+    border: 1px solid var(--glass-border);
+    color: var(--white);
+  }
+
+  .pricing-btn-outline:hover { border-color: var(--teal); color: var(--teal); }
+
+  .pricing-btn-solid {
+    background: var(--teal);
+    border: none;
+    color: #050a12;
+  }
+
+  .pricing-btn-solid:hover { background: #00efe0; transform: translateY(-1px); box-shadow: 0 8px 20px rgba(0,212,200,0.3); }
+
+  .pricing-btn-gold {
+    background: var(--gold);
+    border: none;
+    color: #050a12;
+  }
+
+  .pricing-btn-gold:hover { background: var(--gold-light); transform: translateY(-1px); box-shadow: 0 8px 20px rgba(201,168,76,0.3); }
+
+  /* ── FAQ ── */
+  .faq-section {
+    padding: 120px 60px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .faq-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .faq-item {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+
+  .faq-item:hover { border-color: rgba(255,255,255,0.12); }
+  .faq-item.open { border-color: rgba(0,212,200,0.2); }
+
+  .faq-question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    cursor: pointer;
+    gap: 16px;
+    width: 100%;
+    background: none;
+    border: none;
+    color: inherit;
+    font-family: inherit;
+    text-align: left;
+  }
+
+  .faq-question span {
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--white);
+  }
+
+  .faq-chevron {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s;
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .faq-item.open .faq-chevron {
+    transform: rotate(180deg);
+    background: var(--teal-dim);
+    border-color: rgba(0,212,200,0.2);
+    color: var(--teal);
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+  }
+
+  .faq-item.open .faq-answer {
+    max-height: 300px;
+  }
+
+  .faq-answer-inner {
+    padding: 0 24px 24px;
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.8;
+  }
+
+  /* ── CTA ── */
+  .cta-section {
+    padding: 120px 60px;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .cta-card {
+    position: relative;
+    border-radius: 28px;
+    padding: 80px 60px;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    overflow: hidden;
+  }
+
+  .cta-card::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 300px;
+    background: radial-gradient(ellipse, rgba(0,212,200,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cta-card::after {
+    content: '';
+    position: absolute;
+    bottom: -80px;
+    right: -80px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(ellipse, rgba(201,168,76,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cta-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 6vw, 72px);
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  .cta-sub {
+    font-size: 16px;
+    color: var(--muted);
+    font-weight: 300;
+    margin-bottom: 44px;
+    line-height: 1.6;
+    position: relative;
+  }
+
+  .cta-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+  }
+
+  .btn-xl {
+    padding: 16px 44px;
+    font-size: 15px;
+    border-radius: 10px;
+    font-weight: 600;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid var(--glass-border);
+    padding: 60px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 50px;
+  }
+
+  .footer-brand p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.8;
+    margin-top: 16px;
+    font-weight: 300;
+    max-width: 280px;
+  }
+
+  .footer-socials {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+  }
+
+  .footer-social-link {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s;
+  }
+
+  .footer-social-link:hover {
+    border-color: var(--teal);
+    color: var(--teal);
+    background: var(--teal-dim);
+  }
+
+  .footer-col-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 20px;
+  }
+
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-links a {
+    text-decoration: none;
+    font-size: 13px;
+    color: var(--muted);
+    transition: color 0.3s;
+  }
+
+  .footer-links a:hover { color: var(--white); }
+
+  .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 30px;
+    border-top: 1px solid var(--glass-border);
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .footer-legal {
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .footer-legal a {
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .footer-legal a:hover { color: var(--white); }
+
+  .footer-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .india-flag { font-size: 16px; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── GRID LINES ── */
+  .grid-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(0,212,200,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,212,200,0.02) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    .nav-cta { display: none; }
+    .hamburger { display: flex; }
+    .mobile-menu { display: flex; }
+    .products { padding: 80px 24px; }
+    .products-grid { grid-template-columns: 1fr; }
+    .product-card { padding: 40px 32px; }
+    .why-section { padding: 80px 24px; }
+    .why-grid { grid-template-columns: 1fr; gap: 40px; }
+    .why-visual { height: 300px; }
+    .how-section { padding: 80px 24px; }
+    .how-steps { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+    .how-steps::before { display: none; }
+    .testimonials { padding: 80px 24px; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .pricing-section { padding: 80px 24px; }
+    .pricing-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+    .faq-section { padding: 80px 24px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .hero-stats { gap: 32px; }
+    .hero { padding: 100px 24px 60px; }
+    .cta-section { padding: 80px 24px; }
+    .cta-card { padding: 60px 32px; }
+    footer { padding: 40px 24px; }
+  }
+
+  @media (max-width: 768px) {
+    .hero-headline { font-size: clamp(36px, 10vw, 52px); }
+    .hero-stats { gap: 24px; }
+    .stat-num { font-size: 28px; }
+    .hero-scroll { display: none; }
+    .product-name { font-size: 28px; }
+    .section-title { font-size: clamp(28px, 6vw, 42px); }
+    .how-steps { grid-template-columns: 1fr; gap: 32px; }
+    .orb-outer { width: 240px; height: 240px; }
+    .orb-mid { width: 170px; height: 170px; }
+    .orb-inner { width: 100px; height: 100px; font-size: 11px; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; }
+    .cta-card { padding: 48px 24px; }
+    .cta-title { font-size: clamp(28px, 8vw, 48px); }
+    .trusted-logos { gap: 28px; }
+    .trusted-logo { font-size: 13px; }
+  }
+
+  @media (max-width: 480px) {
+    nav { padding: 14px 16px; }
+    .logo-name { font-size: 14px; }
+    .hero { padding: 90px 16px 50px; }
+    .hero-sub { font-size: 14px; }
+    .hero-actions { flex-direction: column; align-items: center; }
+    .hero-stats { flex-direction: column; gap: 20px; }
+    .product-card { padding: 32px 24px; }
+    .products { padding: 60px 16px; }
+    .how-section { padding: 60px 16px; }
+    .why-section { padding: 60px 16px; }
+    .testimonials { padding: 60px 16px; }
+    .pricing-section { padding: 60px 16px; }
+    .faq-section { padding: 60px 16px; }
+    .cta-section { padding: 60px 16px; }
+    footer { padding: 32px 16px; }
+    .pricing-grid { max-width: 100%; }
+  }
+
+  /* ── MODAL OVERLAY ── */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 300;
+    background: rgba(5,10,18,0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    padding: 24px;
+  }
+
+  .modal-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .modal-box {
+    background: var(--bg2);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 48px 44px;
+    max-width: 520px;
+    width: 100%;
+    position: relative;
+    transform: translateY(20px) scale(0.97);
+    transition: transform 0.3s;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .modal-overlay.active .modal-box {
+    transform: translateY(0) scale(1);
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    color: var(--muted);
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+  }
+
+  .modal-close:hover { border-color: var(--teal); color: var(--teal); }
+
+  .modal-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 24px;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+
+  .modal-subtitle {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 32px;
+    line-height: 1.6;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-label {
+    display: block;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  .form-input,
+  .form-select,
+  .form-textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 10px;
+    border: 1px solid var(--glass-border);
+    background: var(--glass);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    transition: border-color 0.3s;
+    outline: none;
+  }
+
+  .form-input:focus,
+  .form-select:focus,
+  .form-textarea:focus {
+    border-color: var(--teal);
+  }
+
+  .form-input::placeholder,
+  .form-textarea::placeholder { color: rgba(122,143,168,0.5); }
+
+  .form-select { appearance: none; cursor: pointer; }
+
+  .form-select option { background: var(--bg); color: var(--white); }
+
+  .form-textarea { resize: vertical; min-height: 80px; }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .form-error {
+    font-size: 11px;
+    color: #f87171;
+    margin-top: 4px;
+    display: none;
+  }
+
+  .form-group.error .form-input,
+  .form-group.error .form-select { border-color: #f87171; }
+
+  .form-group.error .form-error { display: block; }
+
+  .form-submit {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    background: var(--teal);
+    border: none;
+    color: #050a12;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 8px;
+    position: relative;
+  }
+
+  .form-submit:hover { background: #00efe0; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,212,200,0.3); }
+
+  .form-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .form-submit .spinner {
+    display: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(5,10,18,0.3);
+    border-top-color: #050a12;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .form-submit.loading .spinner { display: block; }
+
+  @keyframes spin { to { transform: translateY(-50%) rotate(360deg); } }
+
+  /* ── VIDEO MODAL ── */
+  .video-box {
+    background: #000;
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    max-width: 900px;
+    width: 100%;
+    aspect-ratio: 16/9;
+    position: relative;
+    overflow: hidden;
+    transform: translateY(20px) scale(0.97);
+    transition: transform 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal-overlay.active .video-box { transform: translateY(0) scale(1); }
+
+  .video-placeholder {
+    text-align: center;
+    color: var(--muted);
+  }
+
+  .video-placeholder .play-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--teal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    font-size: 28px;
+    color: #050a12;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .video-placeholder .play-icon:hover { transform: scale(1.1); box-shadow: 0 0 40px rgba(0,212,200,0.4); }
+
+  .video-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.6);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    transition: all 0.3s;
+  }
+
+  .video-close:hover { background: rgba(0,0,0,0.9); }
+
+  /* ── TOAST ── */
+  .toast {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    z-index: 400;
+    background: var(--bg2);
+    border: 1px solid rgba(0,212,200,0.3);
+    border-radius: 14px;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transform: translateY(120%);
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    max-width: 400px;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+  }
+
+  .toast.show { transform: translateY(0); }
+
+  .toast-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--teal-dim);
+    border: 1px solid rgba(0,212,200,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .toast-text {
+    font-size: 13px;
+    color: var(--white);
+    line-height: 1.5;
+  }
+
+  .toast-text strong { display: block; margin-bottom: 2px; }
+
+  .toast-text span { color: var(--muted); font-size: 12px; }
+
+  /* ── BACK TO TOP ── */
+  .back-to-top {
+    position: fixed;
+    bottom: 32px;
+    left: 32px;
+    z-index: 90;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    color: var(--muted);
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s;
+    backdrop-filter: blur(10px);
+  }
+
+  .back-to-top.visible {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .back-to-top:hover {
+    border-color: var(--teal);
+    color: var(--teal);
+    background: var(--teal-dim);
+  }
+
+  /* ── ACTIVE NAV LINK ── */
+  .nav-links a.active {
+    color: var(--teal);
+  }
+
+  .nav-links a.active::after {
+    width: 100%;
+  }
+
+  @media (max-width: 480px) {
+    .form-row { grid-template-columns: 1fr; }
+    .modal-box { padding: 32px 24px; }
+    .toast { left: 16px; right: 16px; bottom: 16px; max-width: none; }
+    .back-to-top { left: 16px; bottom: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="scroll-progress" id="scroll-progress"></div>
+<div class="cursor-glow" id="cursor-glow"></div>
+<div class="grid-overlay"></div>
+<canvas id="canvas-bg"></canvas>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#products" onclick="closeMobileMenu()">Products</a>
+  <a href="#how" onclick="closeMobileMenu()">How it Works</a>
+  <a href="#why" onclick="closeMobileMenu()">Why JKS</a>
+  <a href="#testimonials" onclick="closeMobileMenu()">Stories</a>
+  <a href="#pricing" onclick="closeMobileMenu()">Pricing</a>
+  <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+  <div class="mobile-cta">
+    <button class="btn-ghost" style="padding:12px 32px;font-size:15px">Sign In</button>
+    <button class="btn-primary" style="padding:12px 32px;font-size:15px" onclick="closeMobileMenu();openModal('demo-modal','both')">Book a Demo</button>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">
+    <div class="logo-mark">
+      <svg viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="38" height="38" rx="10" fill="rgba(0,212,200,0.1)" stroke="rgba(0,212,200,0.25)" stroke-width="1"/>
+        <path d="M10 14h6v10h-6V14zm12 0h6v10h-6V14zM10 14h18" stroke="#00d4c8" stroke-width="1.5" stroke-linecap="round"/>
+        <circle cx="19" cy="19" r="4" stroke="#c9a84c" stroke-width="1.5"/>
+        <path d="M17 19h4M19 17v4" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="logo-text">
+      <span class="logo-name">JKS MEDTECH</span>
+      <span class="logo-sub">Pvt Ltd &middot; Est. India</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#products">Products</a></li>
+    <li><a href="#how">How it Works</a></li>
+    <li><a href="#why">Why JKS</a></li>
+    <li><a href="#testimonials">Stories</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-cta">
+    <button class="btn-ghost">Sign In</button>
+    <button class="btn-primary" onclick="openModal('demo-modal','both')">Book a Demo</button>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">Innovating Indian Healthcare</div>
+  <h1 class="hero-headline">
+    Where <em>Clinical</em> Meets<br>
+    <span class="gold">Digital Brilliance</span>
+  </h1>
+  <p class="hero-sub">
+    JKS Medtech builds software that transforms hospitals, clinics, and medical education &mdash; purpose-built for India's evolving healthcare landscape.
+  </p>
+  <div class="hero-actions">
+    <button class="btn-primary btn-large" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Explore Products</button>
+    <button class="btn-ghost btn-large" onclick="openModal('demo-modal','both')">Book a Demo</button>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num" data-target="200" data-suffix="+">200<span>+</span></div>
+      <div class="stat-label">Hospitals Onboarded</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" data-target="50" data-suffix="k+">50<span>k+</span></div>
+      <div class="stat-label">Learners Enrolled</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" data-target="99.9" data-suffix="%">99<span>.9%</span></div>
+      <div class="stat-label">Uptime SLA</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" data-target="12" data-suffix="+">12<span>+</span></div>
+      <div class="stat-label">States Covered</div>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+  <div class="products-header reveal">
+    <div class="section-label">Our Flagship Products</div>
+    <h2 class="section-title">Two Platforms.<br>One Transformative Vision.</h2>
+    <p class="section-subtitle centered">From hospital operations to medical education, our integrated ecosystem covers the full spectrum of healthcare technology.</p>
+  </div>
+
+  <div class="products-grid">
+
+    <!-- DIGIDOC -->
+    <div class="product-card digidoc reveal">
+      <div class="card-bg-text" style="color:#00d4c8">DD</div>
+      <div class="product-badge badge-teal">
+        <span>&#9679;</span> HealthTech SaaS
+      </div>
+      <div class="product-divider divider-teal"></div>
+      <div class="product-icon icon-teal">&#127973;</div>
+      <div class="product-name name-teal">DigiDoc</div>
+      <div class="product-tagline">The Cloud Hospital Platform Hospitals Actually Love</div>
+      <p class="product-desc">
+        A fully integrated cloud-based hospital management system built for Indian healthcare &mdash; with telemedicine, EMR, billing, pharmacy, and laboratory modules unified in one elegant platform.
+      </p>
+      <ul class="feature-list">
+        <li class="check-teal">End-to-end Cloud Hospital Management System (HMS)</li>
+        <li class="check-teal">Integrated Telemedicine with HD video consultations</li>
+        <li class="check-teal">Smart EMR with ICD-10 coding &amp; prescriptions</li>
+        <li class="check-teal">Real-time billing, pharmacy &amp; lab modules</li>
+        <li class="check-teal">ABDM &amp; NHA compliance ready</li>
+        <li class="check-teal">Multi-branch &amp; multi-specialty support</li>
+      </ul>
+      <div class="card-actions">
+        <button class="btn-teal">Get a Demo</button>
+        <button class="btn-text-teal">Learn More &rarr;</button>
+      </div>
+    </div>
+
+    <!-- DOCADEMY -->
+    <div class="product-card docademy reveal">
+      <div class="card-bg-text" style="color:#c9a84c">DA</div>
+      <div class="product-badge badge-gold">
+        <span>&#9679;</span> EduTech SaaS
+      </div>
+      <div class="product-divider divider-gold"></div>
+      <div class="product-icon icon-gold">&#127891;</div>
+      <div class="product-name name-gold">Docademy</div>
+      <div class="product-tagline">Medical Education, Reimagined for the Modern Clinician</div>
+      <p class="product-desc">
+        A premium medical learning management system delivering structured CME courses, clinical case simulations, and competency tracking &mdash; for medical colleges, hospitals, and healthcare institutions.
+      </p>
+      <ul class="feature-list">
+        <li class="check-gold">Structured CME &amp; CPD course delivery</li>
+        <li class="check-gold">Interactive clinical case simulations</li>
+        <li class="check-gold">Competency mapping &amp; progress analytics</li>
+        <li class="check-gold">Live &amp; recorded lecture management</li>
+        <li class="check-gold">Assessment engine with MCQs &amp; OSCEs</li>
+        <li class="check-gold">Institutional &amp; individual subscription models</li>
+      </ul>
+      <div class="card-actions">
+        <button class="btn-gold">Start Free Trial</button>
+        <button class="btn-text-gold">Learn More &rarr;</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider-line"></div>
+
+<!-- HOW IT WORKS -->
+<section class="how-section" id="how">
+  <div class="how-header reveal">
+    <div class="section-label">How It Works</div>
+    <h2 class="section-title">From Signup to Transformation<br>in Four Simple Steps</h2>
+    <p class="section-subtitle centered">Getting started with JKS Medtech is effortless. Our team ensures a smooth onboarding process so you see results fast.</p>
+  </div>
+  <div class="how-steps">
+    <div class="step-item reveal">
+      <div class="step-number">01</div>
+      <div class="step-icon">&#128222;</div>
+      <div class="step-title">Book a Discovery Call</div>
+      <div class="step-desc">Tell us about your hospital or institution. We'll understand your workflows, pain points, and goals to recommend the right solution.</div>
+    </div>
+    <div class="step-item reveal">
+      <div class="step-number">02</div>
+      <div class="step-icon">&#9881;&#65039;</div>
+      <div class="step-title">Tailored Configuration</div>
+      <div class="step-desc">Our team configures DigiDoc or Docademy to match your exact needs &mdash; departments, roles, billing rules, course structures, and more.</div>
+    </div>
+    <div class="step-item reveal">
+      <div class="step-number">03</div>
+      <div class="step-icon">&#128640;</div>
+      <div class="step-title">Guided Onboarding</div>
+      <div class="step-desc">Hands-on training for your staff, data migration from legacy systems, and parallel-run support until you're fully confident.</div>
+    </div>
+    <div class="step-item reveal">
+      <div class="step-number">04</div>
+      <div class="step-icon">&#128200;</div>
+      <div class="step-title">Scale &amp; Optimize</div>
+      <div class="step-desc">Go live with dedicated support. Use built-in analytics to optimize operations, track outcomes, and scale across branches.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-line"></div>
+
+<!-- WHY JKS -->
+<section class="why-section" id="why">
+  <div class="why-grid">
+    <div class="why-visual reveal">
+      <div class="floating-chips">
+        <div class="chip">&#128737;&#65039; HIPAA Compliant</div>
+        <div class="chip">&#9889; Real-time Sync</div>
+        <div class="chip">&#127470;&#127475; Made in India</div>
+        <div class="chip">&#9729;&#65039; Multi-cloud Ready</div>
+      </div>
+      <div class="orb-container">
+        <div class="orb-outer">
+          <div class="orbit-dot"></div>
+          <div class="orbit-dot orbit-dot-gold"></div>
+          <div class="orb-mid">
+            <div class="orb-inner">JKS<br>MEDTECH</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="section-label reveal">Why Choose JKS Medtech</div>
+      <h2 class="section-title reveal">Built for India.<br>Trusted by Clinicians.</h2>
+      <div class="why-points">
+        <div class="why-point reveal">
+          <div class="why-icon">&#127959;&#65039;</div>
+          <div>
+            <div class="why-point-title">Healthcare-First Architecture</div>
+            <div class="why-point-desc">Every feature is designed around clinical workflows &mdash; not retrofitted from generic enterprise software. We understand the OPD queue, the pharmacy counter, and the ICU bedside.</div>
+          </div>
+        </div>
+        <div class="why-point reveal">
+          <div class="why-icon">&#127470;&#127475;</div>
+          <div>
+            <div class="why-point-title">Localized for India's Complexity</div>
+            <div class="why-point-desc">Multi-language support, GST billing, ABHA integration, and compliance with India's Digital Health Mission &mdash; right out of the box, not as an afterthought.</div>
+          </div>
+        </div>
+        <div class="why-point reveal">
+          <div class="why-icon">&#128274;</div>
+          <div>
+            <div class="why-point-title">Enterprise-Grade Security</div>
+            <div class="why-point-desc">End-to-end encryption, role-based access, audit logs, and multi-factor authentication across all modules. Your patient data is always protected.</div>
+          </div>
+        </div>
+        <div class="why-point reveal">
+          <div class="why-icon">&#128222;</div>
+          <div>
+            <div class="why-point-title">24/7 Dedicated Support</div>
+            <div class="why-point-desc">A healthcare operations team that answers the phone. Onboarding specialists, training programs, and priority SLAs for critical hospital workflows.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-line"></div>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="testimonials-inner">
+    <div class="testimonials-header reveal">
+      <div class="section-label">Customer Stories</div>
+      <h2 class="section-title">Loved by Hospitals,<br>Trusted by Educators.</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">DigiDoc completely transformed our multi-specialty hospital operations. From OPD to billing to pharmacy &mdash; everything is now seamlessly connected. The telemedicine module alone helped us reach 3 districts we couldn't serve before.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">DK</div>
+          <div>
+            <div class="author-name">Dr. Dinesh Kumar</div>
+            <div class="author-role">Medical Director, Synapse Hospitals, Chennai</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">Docademy made it incredibly easy to roll out our CME program to 800+ resident doctors across five colleges. The analytics dashboard tells us exactly where each learner needs support. Truly enterprise-grade but surprisingly easy to use.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">PP</div>
+          <div>
+            <div class="author-name">Prof. Priya Parthasarathy</div>
+            <div class="author-role">Dean of Academics, Metro Medical College, Hyderabad</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">We switched from a legacy HMS to DigiDoc in under 3 weeks with zero downtime. The ABDM integration was seamless, and our front-desk team loves how intuitive the appointment and billing system is.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">RV</div>
+          <div>
+            <div class="author-name">Rahul Venkatesh</div>
+            <div class="author-role">Hospital Administrator, Aarogya Clinic Network, Bengaluru</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUSTED BY -->
+<section class="trusted-section reveal">
+  <div class="trusted-label">Trusted by leading healthcare institutions across India</div>
+  <div class="trusted-logos">
+    <div class="trusted-logo">SYNAPSE HOSPITALS</div>
+    <div class="trusted-logo">METRO MEDICAL COLLEGE</div>
+    <div class="trusted-logo">AAROGYA NETWORK</div>
+    <div class="trusted-logo">HEALIFY CLINICS</div>
+    <div class="trusted-logo">NOVA DIAGNOSTICS</div>
+  </div>
+</section>
+
+<div class="divider-line"></div>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="pricing-header reveal">
+    <div class="section-label">Simple, Transparent Pricing</div>
+    <h2 class="section-title">Plans That Scale<br>With Your Practice</h2>
+    <p class="section-subtitle centered">Start small, grow big. Every plan includes onboarding support, training, and our 99.9% uptime guarantee.</p>
+    <div class="pricing-toggle">
+      <span class="active" id="toggle-monthly">Monthly</span>
+      <div class="toggle-switch" id="toggle-switch" onclick="togglePricing()"></div>
+      <span id="toggle-annual">Annual</span>
+      <span class="save-badge">SAVE 20%</span>
+    </div>
+  </div>
+
+  <div class="pricing-grid">
+
+    <!-- STARTER -->
+    <div class="pricing-card reveal">
+      <div class="pricing-plan">Starter</div>
+      <div class="pricing-desc">Perfect for single clinics and small hospitals getting started.</div>
+      <div class="pricing-amount">
+        <span class="pricing-currency">&#8377;</span>
+        <span class="pricing-value" data-monthly="9999" data-annual="7999">9,999</span>
+      </div>
+      <div class="pricing-period">per month</div>
+      <div class="pricing-note">Up to 50 beds &middot; Single branch</div>
+      <ul class="pricing-features">
+        <li>DigiDoc HMS Core Modules</li>
+        <li>OPD, IPD &amp; Billing</li>
+        <li>Basic EMR &amp; Prescriptions</li>
+        <li>5 User Accounts</li>
+        <li>Email Support</li>
+        <li>ABDM Integration</li>
+      </ul>
+      <button class="pricing-btn pricing-btn-outline">Get Started</button>
+    </div>
+
+    <!-- PROFESSIONAL -->
+    <div class="pricing-card featured reveal">
+      <div class="pricing-popular">Most Popular</div>
+      <div class="pricing-plan">Professional</div>
+      <div class="pricing-desc">Full-suite solution for growing hospitals and medical colleges.</div>
+      <div class="pricing-amount">
+        <span class="pricing-currency">&#8377;</span>
+        <span class="pricing-value" data-monthly="29999" data-annual="23999">29,999</span>
+      </div>
+      <div class="pricing-period">per month</div>
+      <div class="pricing-note">Up to 200 beds &middot; Multi-branch</div>
+      <ul class="pricing-features">
+        <li>Everything in Starter</li>
+        <li>Telemedicine Module</li>
+        <li>Pharmacy &amp; Lab Integration</li>
+        <li>Docademy LMS Access</li>
+        <li>Unlimited Users</li>
+        <li>Priority 24/7 Support</li>
+        <li>Custom Reports &amp; Analytics</li>
+      </ul>
+      <button class="pricing-btn pricing-btn-solid">Get Started</button>
+    </div>
+
+    <!-- ENTERPRISE -->
+    <div class="pricing-card reveal">
+      <div class="pricing-plan">Enterprise</div>
+      <div class="pricing-desc">For hospital chains, teaching hospitals, and large institutions.</div>
+      <div class="pricing-amount">
+        <span class="pricing-value" style="font-size:36px">Custom</span>
+      </div>
+      <div class="pricing-period">tailored to your needs</div>
+      <div class="pricing-note">Unlimited beds &middot; Unlimited branches</div>
+      <ul class="pricing-features">
+        <li>Everything in Professional</li>
+        <li>Dedicated Account Manager</li>
+        <li>Custom Integrations &amp; API</li>
+        <li>On-premise / Hybrid Deployment</li>
+        <li>SLA-backed 99.99% Uptime</li>
+        <li>White-label Options</li>
+        <li>Advanced Security &amp; Compliance</li>
+      </ul>
+      <button class="pricing-btn pricing-btn-gold">Contact Sales</button>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider-line"></div>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="faq-header reveal">
+    <div class="section-label">Frequently Asked Questions</div>
+    <h2 class="section-title">Got Questions?<br>We've Got Answers.</h2>
+  </div>
+  <div class="faq-list">
+
+    <div class="faq-item reveal">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <span>How long does it take to go live with DigiDoc?</span>
+        <div class="faq-chevron">&#9660;</div>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">Most clinics go live within 1&ndash;2 weeks. For multi-specialty hospitals, a typical deployment takes 3&ndash;4 weeks including data migration from legacy systems, staff training, and parallel-run testing. Our onboarding team handles the heavy lifting so your clinical operations are never disrupted.</div>
+      </div>
+    </div>
+
+    <div class="faq-item reveal">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <span>Is our patient data safe and compliant?</span>
+        <div class="faq-chevron">&#9660;</div>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">Absolutely. JKS Medtech follows industry-standard security practices including AES-256 encryption at rest and TLS 1.3 in transit, role-based access controls, regular penetration testing, and audit logging. We are ABDM-compliant, NHA-ready, and follow HIPAA-equivalent data handling practices. Data is hosted on AWS/Azure servers within India.</div>
+      </div>
+    </div>
+
+    <div class="faq-item reveal">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <span>Can I use Docademy without DigiDoc?</span>
+        <div class="faq-chevron">&#9660;</div>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">Yes. Both products work independently. Docademy is a standalone LMS perfect for medical colleges, CME providers, and healthcare training programs. However, when used together with DigiDoc, you unlock unique features like clinical-case-based learning linked to real anonymized patient data, and staff competency tracking tied to hospital performance metrics.</div>
+      </div>
+    </div>
+
+    <div class="faq-item reveal">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <span>Do you provide migration support from our existing HMS?</span>
+        <div class="faq-chevron">&#9660;</div>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">Yes. We provide full data migration support from any existing HMS, EHR, or paper-based system. Our migration team maps your existing data structures, validates the import, and runs parallel testing to ensure zero data loss. We've successfully migrated hospitals from over 15 different legacy systems.</div>
+      </div>
+    </div>
+
+    <div class="faq-item reveal">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <span>What kind of support do you offer?</span>
+        <div class="faq-chevron">&#9660;</div>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">Starter plans include email support with 24-hour response times. Professional and Enterprise plans include 24/7 phone and chat support, a dedicated customer success manager, quarterly business reviews, and on-site training sessions. We also maintain a comprehensive knowledge base and video tutorial library.</div>
+      </div>
+    </div>
+
+    <div class="faq-item reveal">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <span>Can JKS Medtech integrate with existing hospital equipment and third-party systems?</span>
+        <div class="faq-chevron">&#9660;</div>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">Yes. DigiDoc supports HL7 FHIR, REST APIs, and direct integrations with popular lab equipment (LIS), radiology systems (PACS), payment gateways, insurance TPA portals, and government health portals like ABHA and CoWIN. Our Enterprise plan includes custom integration development for any specialized equipment or workflow.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="cta-card reveal">
+    <div class="section-label" style="margin-bottom:20px;position:relative">Ready to Transform?</div>
+    <h2 class="cta-title">Start Your Digital Health Journey <em style="color:var(--teal);font-style:italic">Today</em></h2>
+    <p class="cta-sub">Whether you're a 20-bed clinic or a 500-bed teaching hospital, JKS Medtech has a solution that fits. Book a personalized demo with our product specialists.</p>
+    <div class="cta-actions">
+      <button class="btn-teal btn-xl">Book DigiDoc Demo</button>
+      <button class="btn-gold btn-xl">Explore Docademy</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="nav-logo">
+        <div class="logo-mark">
+          <svg viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="38" height="38" rx="10" fill="rgba(0,212,200,0.1)" stroke="rgba(0,212,200,0.25)" stroke-width="1"/>
+            <path d="M10 14h6v10h-6V14zm12 0h6v10h-6V14zM10 14h18" stroke="#00d4c8" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="19" cy="19" r="4" stroke="#c9a84c" stroke-width="1.5"/>
+            <path d="M17 19h4M19 17v4" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <span class="logo-name">JKS MEDTECH</span>
+          <span class="logo-sub">Pvt Ltd &middot; Est. India</span>
+        </div>
+      </div>
+      <p>Empowering Indian healthcare through thoughtfully engineered SaaS products that bridge the gap between clinical excellence and digital innovation.</p>
+      <div class="footer-socials">
+        <a href="#" class="footer-social-link" aria-label="LinkedIn">in</a>
+        <a href="#" class="footer-social-link" aria-label="Twitter">&#120143;</a>
+        <a href="#" class="footer-social-link" aria-label="YouTube">&#9654;</a>
+        <a href="#" class="footer-social-link" aria-label="Instagram">&#9901;</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Products</div>
+      <ul class="footer-links">
+        <li><a href="#">DigiDoc HMS</a></li>
+        <li><a href="#">DigiDoc Tele</a></li>
+        <li><a href="#">Docademy LMS</a></li>
+        <li><a href="#">Docademy CME</a></li>
+        <li><a href="#">Integrations</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-links">
+        <li><a href="#">About JKS</a></li>
+        <li><a href="#">Our Team</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Press</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Resources</div>
+      <ul class="footer-links">
+        <li><a href="#">Documentation</a></li>
+        <li><a href="#">API Reference</a></li>
+        <li><a href="#">Case Studies</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Support Center</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-legal">&copy; 2025 JKS Medtech Pvt Ltd. All rights reserved. &nbsp;|&nbsp; <a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Terms of Service</a></div>
+    <div class="footer-badge">
+      <span class="india-flag">&#127470;&#127475;</span>
+      Proudly Built in India
+    </div>
+  </div>
+</footer>
+
+<!-- DEMO FORM MODAL -->
+<div class="modal-overlay" id="demo-modal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('demo-modal')" aria-label="Close">&times;</button>
+    <div class="modal-title">Book a Demo</div>
+    <div class="modal-subtitle">Fill in your details and our product specialist will reach out within 24 hours to schedule a personalized walkthrough.</div>
+    <form id="demo-form" onsubmit="handleDemoSubmit(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="demo-name">Full Name</label>
+          <input class="form-input" type="text" id="demo-name" placeholder="Dr. Arun Sharma" required>
+          <div class="form-error">Please enter your name</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="demo-phone">Phone Number</label>
+          <input class="form-input" type="tel" id="demo-phone" placeholder="+91 98765 43210" required>
+          <div class="form-error">Please enter a valid phone number</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="demo-email">Work Email</label>
+        <input class="form-input" type="email" id="demo-email" placeholder="arun@hospital.in" required>
+        <div class="form-error">Please enter a valid email</div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="demo-org">Organization</label>
+          <input class="form-input" type="text" id="demo-org" placeholder="City Hospital">
+          <div class="form-error">Please enter your organization</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="demo-product">Interested In</label>
+          <select class="form-select" id="demo-product">
+            <option value="digidoc">DigiDoc (Cloud Hospital)</option>
+            <option value="docademy">Docademy (Medical LMS)</option>
+            <option value="both">Both Products</option>
+            <option value="enterprise">Enterprise / Custom</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="demo-size">Hospital / Institution Size</label>
+        <select class="form-select" id="demo-size">
+          <option value="">Select size...</option>
+          <option value="small">Up to 50 beds / Small clinic</option>
+          <option value="medium">50–200 beds / Mid-size hospital</option>
+          <option value="large">200–500 beds / Large hospital</option>
+          <option value="chain">500+ beds / Hospital chain</option>
+          <option value="college">Medical college / University</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="demo-message">Anything else? (Optional)</label>
+        <textarea class="form-textarea" id="demo-message" placeholder="Tell us about your current setup, challenges, or specific requirements..."></textarea>
+      </div>
+      <button class="form-submit" type="submit" id="demo-submit-btn">
+        Request Demo
+        <span class="spinner"></span>
+      </button>
+    </form>
+  </div>
+</div>
+
+<!-- VIDEO MODAL -->
+<div class="modal-overlay" id="video-modal">
+  <div class="video-box">
+    <button class="video-close" onclick="closeModal('video-modal')" aria-label="Close">&times;</button>
+    <div class="video-placeholder">
+      <div class="play-icon">&#9654;</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:18px;color:var(--white);margin-bottom:8px">Product Overview</div>
+      <div style="font-size:13px">Coming Soon &mdash; Video walkthrough of DigiDoc &amp; Docademy</div>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <div class="toast-icon">&#10003;</div>
+  <div class="toast-text">
+    <strong id="toast-title">Success!</strong>
+    <span id="toast-msg">We'll be in touch shortly.</span>
+  </div>
+</div>
+
+<!-- BACK TO TOP -->
+<button class="back-to-top" id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">&#8593;</button>
+
+<script>
+// ── MOBILE MENU ──
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  mobileMenu.classList.toggle('open');
+  document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+});
+
+function closeMobileMenu() {
+  hamburger.classList.remove('active');
+  mobileMenu.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// ── SCROLL PROGRESS ──
+const scrollProgress = document.getElementById('scroll-progress');
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const percent = (scrollTop / docHeight) * 100;
+  scrollProgress.style.width = percent + '%';
+}, { passive: true });
+
+// ── CURSOR GLOW ──
+const cursorGlow = document.getElementById('cursor-glow');
+let mouseX = 0, mouseY = 0;
+let glowX = 0, glowY = 0;
+
+document.addEventListener('mousemove', (e) => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+});
+
+function updateGlow() {
+  glowX += (mouseX - glowX) * 0.08;
+  glowY += (mouseY - glowY) * 0.08;
+  cursorGlow.style.left = glowX + 'px';
+  cursorGlow.style.top = glowY + 'px';
+  requestAnimationFrame(updateGlow);
+}
+updateGlow();
+
+// Hide glow on mobile
+if ('ontouchstart' in window) {
+  cursorGlow.style.display = 'none';
+}
+
+// ── PARTICLE CANVAS ──
+const canvas = document.getElementById('canvas-bg');
+const ctx = canvas.getContext('2d');
+let particles = [];
+let W, H;
+
+function resize() {
+  W = canvas.width = window.innerWidth;
+  H = canvas.height = window.innerHeight;
+}
+
+resize();
+window.addEventListener('resize', () => { resize(); initParticles(); });
+
+function createParticle() {
+  return {
+    x: Math.random() * W,
+    y: Math.random() * H,
+    r: Math.random() * 1.5 + 0.3,
+    speed: Math.random() * 0.3 + 0.05,
+    angle: Math.random() * Math.PI * 2,
+    drift: (Math.random() - 0.5) * 0.005,
+    opacity: Math.random() * 0.4 + 0.1,
+    color: Math.random() > 0.5 ? '#00d4c8' : '#c9a84c'
+  };
+}
+
+function initParticles() {
+  particles = [];
+  const count = Math.min(Math.floor((W * H) / 14000), 120);
+  for (let i = 0; i < count; i++) particles.push(createParticle());
+}
+
+initParticles();
+
+function animateParticles() {
+  ctx.clearRect(0, 0, W, H);
+
+  // faint radial glow
+  const grad = ctx.createRadialGradient(W/2, H*0.3, 0, W/2, H*0.3, W*0.5);
+  grad.addColorStop(0, 'rgba(0,212,200,0.03)');
+  grad.addColorStop(1, 'transparent');
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, W, H);
+
+  // Connection lines
+  for (let i = 0; i < particles.length; i++) {
+    for (let j = i + 1; j < particles.length; j++) {
+      const dx = particles[i].x - particles[j].x;
+      const dy = particles[i].y - particles[j].y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < 120) {
+        ctx.beginPath();
+        ctx.moveTo(particles[i].x, particles[i].y);
+        ctx.lineTo(particles[j].x, particles[j].y);
+        ctx.strokeStyle = 'rgba(0,212,200,' + (0.06 * (1 - dist / 120)) + ')';
+        ctx.lineWidth = 0.5;
+        ctx.stroke();
+      }
+    }
+  }
+
+  particles.forEach(p => {
+    p.angle += p.drift;
+    p.x += Math.cos(p.angle) * p.speed;
+    p.y -= p.speed * 0.5;
+    if (p.y < -10) { p.y = H + 10; p.x = Math.random() * W; }
+    if (p.x < -10) p.x = W + 10;
+    if (p.x > W + 10) p.x = -10;
+
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    ctx.fillStyle = p.color;
+    ctx.globalAlpha = p.opacity;
+    ctx.fill();
+    ctx.globalAlpha = 1;
+  });
+
+  requestAnimationFrame(animateParticles);
+}
+
+animateParticles();
+
+// ── SCROLL REVEAL ──
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+revealEls.forEach(el => observer.observe(el));
+
+// ── NAV SCROLL TINT ──
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('nav');
+  if (window.scrollY > 60) {
+    nav.style.background = 'rgba(5,10,18,0.95)';
+  } else {
+    nav.style.background = 'rgba(5,10,18,0.7)';
+  }
+}, { passive: true });
+
+// ── COUNTER ANIMATION ──
+function animateCounter(el, target, suffix) {
+  let current = 0;
+  const step = target / 60;
+  const timer = setInterval(() => {
+    current += step;
+    if (current >= target) {
+      current = target;
+      clearInterval(timer);
+    }
+    const num = Number.isInteger(target) ? Math.floor(current) : current.toFixed(1);
+    el.innerHTML = num.toLocaleString() + '<span>' + suffix + '</span>';
+  }, 25);
+}
+
+const statsObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const nums = document.querySelectorAll('.stat-num');
+      const data = [
+        { val: 200, suffix: '+' },
+        { val: 50, suffix: 'k+' },
+        { val: 99.9, suffix: '%' },
+        { val: 12, suffix: '+' }
+      ];
+      nums.forEach((el, i) => {
+        if (data[i]) animateCounter(el, data[i].val, data[i].suffix);
+      });
+      statsObs.disconnect();
+    }
+  });
+}, { threshold: 0.5 });
+
+const statsEl = document.querySelector('.hero-stats');
+if (statsEl) statsObs.observe(statsEl);
+
+// ── FAQ TOGGLE ──
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const wasOpen = item.classList.contains('open');
+
+  // Close all
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+
+  // Toggle clicked
+  if (!wasOpen) item.classList.add('open');
+}
+
+// ── PRICING TOGGLE ──
+let isAnnual = false;
+
+function togglePricing() {
+  isAnnual = !isAnnual;
+  const toggle = document.getElementById('toggle-switch');
+  const monthlyLabel = document.getElementById('toggle-monthly');
+  const annualLabel = document.getElementById('toggle-annual');
+
+  toggle.classList.toggle('annual', isAnnual);
+  monthlyLabel.classList.toggle('active', !isAnnual);
+  annualLabel.classList.toggle('active', isAnnual);
+
+  document.querySelectorAll('.pricing-value').forEach(el => {
+    const monthly = parseInt(el.dataset.monthly);
+    const annual = parseInt(el.dataset.annual);
+    if (monthly && annual) {
+      const val = isAnnual ? annual : monthly;
+      el.textContent = val.toLocaleString('en-IN');
+    }
+  });
+}
+
+// ── SMOOTH ANCHOR SCROLLING ──
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      closeMobileMenu();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+// ── MODAL SYSTEM ──
+function openModal(id, product) {
+  const modal = document.getElementById(id);
+  if (!modal) return;
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+  if (id === 'demo-modal' && product) {
+    const select = document.getElementById('demo-product');
+    if (select) select.value = product;
+  }
+}
+
+function closeModal(id) {
+  const modal = document.getElementById(id);
+  if (!modal) return;
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+  if (id === 'demo-modal') {
+    document.getElementById('demo-form').reset();
+    document.querySelectorAll('.form-group.error').forEach(g => g.classList.remove('error'));
+    const btn = document.getElementById('demo-submit-btn');
+    btn.classList.remove('loading');
+    btn.disabled = false;
+  }
+}
+
+// Close modal on overlay click
+document.querySelectorAll('.modal-overlay').forEach(overlay => {
+  overlay.addEventListener('click', function(e) {
+    if (e.target === this) closeModal(this.id);
+  });
+});
+
+// Close modal on Escape key
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.modal-overlay.active').forEach(m => closeModal(m.id));
+  }
+});
+
+// ── TOAST NOTIFICATION ──
+function showToast(title, msg) {
+  const toast = document.getElementById('toast');
+  document.getElementById('toast-title').textContent = title;
+  document.getElementById('toast-msg').textContent = msg;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 4500);
+}
+
+// ── FORM VALIDATION & SUBMISSION ──
+function handleDemoSubmit(e) {
+  e.preventDefault();
+  const form = document.getElementById('demo-form');
+  const btn = document.getElementById('demo-submit-btn');
+  let valid = true;
+
+  // Clear previous errors
+  form.querySelectorAll('.form-group.error').forEach(g => g.classList.remove('error'));
+
+  // Validate name
+  const name = document.getElementById('demo-name');
+  if (!name.value.trim() || name.value.trim().length < 2) {
+    name.closest('.form-group').classList.add('error');
+    valid = false;
+  }
+
+  // Validate phone
+  const phone = document.getElementById('demo-phone');
+  const phoneVal = phone.value.replace(/[\s\-\(\)]/g, '');
+  if (!phoneVal || phoneVal.length < 10) {
+    phone.closest('.form-group').classList.add('error');
+    valid = false;
+  }
+
+  // Validate email
+  const email = document.getElementById('demo-email');
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email.value.trim())) {
+    email.closest('.form-group').classList.add('error');
+    valid = false;
+  }
+
+  if (!valid) return;
+
+  // Simulate submission
+  btn.classList.add('loading');
+  btn.disabled = true;
+
+  setTimeout(() => {
+    const data = {
+      name: name.value.trim(),
+      phone: phone.value.trim(),
+      email: email.value.trim(),
+      organization: document.getElementById('demo-org').value.trim(),
+      product: document.getElementById('demo-product').value,
+      size: document.getElementById('demo-size').value,
+      message: document.getElementById('demo-message').value.trim(),
+      timestamp: new Date().toISOString()
+    };
+
+    // Log to console (replace with actual API call)
+    console.log('Demo Request Submitted:', data);
+
+    closeModal('demo-modal');
+    showToast('Demo Requested!', "Thank you, " + data.name.split(' ')[0] + "! Our team will contact you within 24 hours.");
+  }, 1800);
+}
+
+// ── WIRE CTA BUTTONS ──
+document.addEventListener('DOMContentLoaded', function() {
+  // Product card buttons
+  document.querySelectorAll('.product-card').forEach(card => {
+    const isDigidoc = card.classList.contains('digidoc');
+    const isDocademy = card.classList.contains('docademy');
+    card.querySelectorAll('.card-actions button').forEach(btn => {
+      const text = btn.textContent.trim().toLowerCase();
+      if (text.includes('demo')) {
+        btn.addEventListener('click', () => openModal('demo-modal', 'digidoc'));
+      } else if (text.includes('trial') || text.includes('learning')) {
+        btn.addEventListener('click', () => openModal('demo-modal', 'docademy'));
+      } else if (text.includes('learn more')) {
+        btn.addEventListener('click', () => document.getElementById('pricing').scrollIntoView({ behavior: 'smooth' }));
+      }
+    });
+  });
+
+  // Pricing buttons
+  document.querySelectorAll('.pricing-btn').forEach(btn => {
+    const text = btn.textContent.trim().toLowerCase();
+    if (text.includes('contact sales')) {
+      btn.addEventListener('click', () => openModal('demo-modal', 'enterprise'));
+    } else {
+      btn.addEventListener('click', () => openModal('demo-modal', 'both'));
+    }
+  });
+
+  // CTA section buttons
+  const ctaSection = document.querySelector('.cta-section');
+  if (ctaSection) {
+    const ctaBtns = ctaSection.querySelectorAll('button');
+    ctaBtns.forEach(btn => {
+      const text = btn.textContent.trim().toLowerCase();
+      if (text.includes('digidoc')) {
+        btn.addEventListener('click', () => openModal('demo-modal', 'digidoc'));
+      } else if (text.includes('docademy')) {
+        btn.addEventListener('click', () => openModal('demo-modal', 'docademy'));
+      } else {
+        btn.addEventListener('click', () => openModal('demo-modal', 'both'));
+      }
+    });
+  }
+
+  // Footer "Contact" link
+  document.querySelectorAll('.footer-links a').forEach(link => {
+    if (link.textContent.trim().toLowerCase() === 'contact') {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        openModal('demo-modal', 'both');
+      });
+    }
+  });
+});
+
+// ── ACTIVE NAV HIGHLIGHTING ──
+const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+const sections = [];
+navLinks.forEach(link => {
+  const id = link.getAttribute('href').slice(1);
+  const sec = document.getElementById(id);
+  if (sec) sections.push({ el: sec, link: link });
+});
+
+function updateActiveNav() {
+  const scrollPos = window.scrollY + 120;
+  let currentId = '';
+  sections.forEach(({ el }) => {
+    if (el.offsetTop <= scrollPos) currentId = el.id;
+  });
+  navLinks.forEach(link => {
+    link.classList.toggle('active', link.getAttribute('href') === '#' + currentId);
+  });
+}
+
+window.addEventListener('scroll', updateActiveNav, { passive: true });
+updateActiveNav();
+
+// ── BACK TO TOP BUTTON ──
+const backToTop = document.getElementById('back-to-top');
+window.addEventListener('scroll', function() {
+  if (window.scrollY > 600) {
+    backToTop.classList.add('visible');
+  } else {
+    backToTop.classList.remove('visible');
+  }
+}, { passive: true });
+</script>
+
+</body>
+</html>
