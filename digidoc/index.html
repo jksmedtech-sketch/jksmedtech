@@ -3,19 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JKS Medtech Pvt Ltd — Powering the Future of Healthcare</title>
-<meta name="description" content="JKS Medtech builds DigiDoc (cloud hospital HMS) and Docademy (medical e-learning LMS) — purpose-built SaaS for India's healthcare ecosystem.">
-<meta property="og:title" content="JKS Medtech Pvt Ltd — Powering the Future of Healthcare">
-<meta property="og:description" content="Two flagship SaaS products — DigiDoc cloud hospital platform and Docademy medical e-learning — purpose-built for India's healthcare ecosystem.">
+<title>DigiDoc — Cloud Hospital Management System | JKS Medtech</title>
+<meta name="description" content="DigiDoc is a fully integrated cloud-based hospital management system — OPD, IPD, EMR, telemedicine, billing, pharmacy, and lab unified in one elegant platform. Built for Indian healthcare.">
+<meta property="og:title" content="DigiDoc — Cloud Hospital Management System | JKS Medtech">
+<meta property="og:description" content="The Hospital OS That Actually Works. OPD, IPD, EMR, telemedicine, billing, pharmacy, and lab — all in one cloud platform.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://jksmedtech.com/">
+<meta property="og:url" content="https://jksmedtech.com//digidoc/">
 <meta property="og:image" content="https://jksmedtech.com/og-image.png">
 <meta property="og:locale" content="en_IN">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://jksmedtech.com/og-image.png">
-<link rel="canonical" href="https://jksmedtech.com/">
-<meta name="twitter:title" content="JKS Medtech — Where Clinical Meets Digital Brilliance">
-<meta name="twitter:description" content="DigiDoc + Docademy: Cloud hospital management and medical e-learning built for India.">
+<meta name="twitter:title" content="DigiDoc — Cloud Hospital Management System | JKS Medtech">
+<meta name="twitter:description" content="The Hospital OS That Actually Works. Built for Indian healthcare by JKS Medtech.">
+<link rel="canonical" href="https://jksmedtech.com//digidoc/">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' width='100' height='100' fill='%23050a12'/><text x='50' y='68' font-size='50' text-anchor='middle' fill='%2300d4c8' font-family='sans-serif' font-weight='bold'>J</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -54,7 +53,7 @@
     position: fixed;
     top: 0; left: 0;
     height: 2px;
-    background: linear-gradient(90deg, var(--teal), var(--gold-light));
+    background: linear-gradient(90deg, var(--teal), #00efe0);
     z-index: 200;
     width: 0%;
     transition: width 0.1s linear;
@@ -79,6 +78,20 @@
     inset: 0;
     z-index: 0;
     pointer-events: none;
+  }
+
+  /* ── GRID LINES ── */
+  .grid-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(0,212,200,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,212,200,0.02) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
   }
 
   /* ── NAV ── */
@@ -163,6 +176,8 @@
 
   .nav-links a:hover { color: var(--white); }
   .nav-links a:hover::after { width: 100%; }
+  .nav-links a.active { color: var(--teal); }
+  .nav-links a.active::after { width: 100%; }
 
   .nav-cta {
     display: flex;
@@ -238,6 +253,7 @@
     align-items: center;
   }
 
+  /* ── BUTTONS ── */
   .btn-ghost {
     padding: 9px 22px;
     border: 1px solid var(--glass-border);
@@ -269,6 +285,36 @@
   }
 
   .btn-primary:hover { background: #00efe0; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,212,200,0.3); }
+
+  .btn-teal {
+    padding: 11px 28px;
+    border-radius: 8px;
+    background: var(--teal);
+    border: none;
+    color: #050a12;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+  }
+
+  .btn-teal:hover { background: #00efe0; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,212,200,0.3); }
+
+  .btn-large {
+    padding: 14px 36px;
+    font-size: 14px;
+    border-radius: 8px;
+    font-weight: 600;
+  }
+
+  .btn-xl {
+    padding: 16px 44px;
+    font-size: 15px;
+    border-radius: 10px;
+    font-weight: 600;
+  }
 
   /* ── HERO ── */
   .hero {
@@ -325,7 +371,7 @@
   }
 
   .hero-headline em {
-    font-style: normal;
+    font-style: italic;
     color: var(--teal);
     position: relative;
   }
@@ -341,15 +387,10 @@
     opacity: 0.4;
   }
 
-  .hero-headline .gold {
-    font-style: italic;
-    color: var(--gold-light);
-  }
-
   .hero-sub {
     font-size: clamp(15px, 2vw, 18px);
     color: var(--muted);
-    max-width: 560px;
+    max-width: 620px;
     margin: 20px auto 48px;
     font-weight: 300;
     line-height: 1.7;
@@ -362,13 +403,6 @@
     justify-content: center;
     flex-wrap: wrap;
     animation: fadeUp 0.8s 0.3s ease both;
-  }
-
-  .btn-large {
-    padding: 14px 36px;
-    font-size: 14px;
-    border-radius: 8px;
-    font-weight: 600;
   }
 
   .hero-stats {
@@ -464,250 +498,188 @@
 
   .section-subtitle.centered { margin-left: auto; margin-right: auto; }
 
-  /* ── PRODUCTS ── */
-  .products {
-    padding: 120px 60px;
-    max-width: 1400px;
-    margin: 0 auto;
-  }
-
-  .products-header {
-    text-align: center;
-    margin-bottom: 80px;
-  }
-
-  .products-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 28px;
-  }
-
-  .product-card {
-    position: relative;
-    border-radius: 20px;
-    padding: 56px 52px;
-    background: var(--glass);
-    border: 1px solid var(--glass-border);
-    overflow: hidden;
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-    cursor: pointer;
-  }
-
-  .product-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 20px;
-    opacity: 0;
-    transition: opacity 0.5s;
-  }
-
-  .product-card.digidoc::before {
-    background: radial-gradient(ellipse at 20% 20%, rgba(0,212,200,0.08) 0%, transparent 70%);
-  }
-
-  .product-card.docademy::before {
-    background: radial-gradient(ellipse at 80% 20%, rgba(201,168,76,0.08) 0%, transparent 70%);
-  }
-
-  .product-card:hover::before { opacity: 1; }
-
-  .product-card:hover {
-    transform: translateY(-6px);
-    border-color: rgba(255,255,255,0.14);
-  }
-
-  .product-card.digidoc:hover { box-shadow: 0 40px 80px rgba(0,212,200,0.1), 0 0 0 1px rgba(0,212,200,0.15); }
-  .product-card.docademy:hover { box-shadow: 0 40px 80px rgba(201,168,76,0.1), 0 0 0 1px rgba(201,168,76,0.15); }
-
-  .card-bg-text {
-    position: absolute;
-    bottom: -10px;
-    right: -10px;
-    font-family: 'Syne', sans-serif;
-    font-size: 140px;
-    font-weight: 800;
-    line-height: 1;
-    opacity: 0.03;
-    letter-spacing: -5px;
-    pointer-events: none;
-    user-select: none;
-  }
-
-  .product-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 5px 14px;
-    border-radius: 100px;
-    font-size: 10px;
-    letter-spacing: 0.18em;
-    font-weight: 600;
-    text-transform: uppercase;
-    margin-bottom: 32px;
-  }
-
-  .badge-teal { background: var(--teal-dim); color: var(--teal); border: 1px solid rgba(0,212,200,0.25); }
-  .badge-gold { background: var(--gold-dim); color: var(--gold-light); border: 1px solid rgba(201,168,76,0.25); }
-
-  .product-icon {
-    width: 64px;
-    height: 64px;
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 28px;
-    font-size: 28px;
-  }
-
-  .icon-teal { background: var(--teal-dim); border: 1px solid rgba(0,212,200,0.2); }
-  .icon-gold { background: var(--gold-dim); border: 1px solid rgba(201,168,76,0.2); }
-
-  .product-name {
-    font-family: 'Syne', sans-serif;
-    font-size: 38px;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    margin-bottom: 8px;
-  }
-
-  .name-teal { color: var(--teal); }
-  .name-gold { color: var(--gold-light); }
-
-  .product-tagline {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px;
-    font-weight: 300;
-    color: var(--white);
-    margin-bottom: 20px;
-    line-height: 1.3;
-  }
-
-  .product-desc {
-    font-size: 14px;
-    color: var(--muted);
-    line-height: 1.8;
-    margin-bottom: 40px;
-    font-weight: 300;
-  }
-
-  .feature-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-bottom: 44px;
-  }
-
-  .feature-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    font-size: 13px;
-    color: var(--muted);
-  }
-
-  .feature-list li::before {
-    content: '';
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    margin-top: 1px;
-    font-size: 10px;
-  }
-
-  .check-teal::before { background: var(--teal-dim); border: 1px solid var(--teal); content: '\2713'; color: var(--teal); font-weight: 700; font-size: 9px; display: flex; align-items: center; justify-content: center; }
-  .check-gold::before { background: var(--gold-dim); border: 1px solid var(--gold); content: '\2713'; color: var(--gold-light); font-weight: 700; font-size: 9px; display: flex; align-items: center; justify-content: center; }
-
-  .card-actions {
-    display: flex;
-    gap: 14px;
-    align-items: center;
-  }
-
-  .btn-teal {
-    padding: 11px 28px;
-    border-radius: 8px;
-    background: var(--teal);
-    border: none;
-    color: #050a12;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s;
-    text-decoration: none;
-  }
-
-  .btn-teal:hover { background: #00efe0; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,212,200,0.3); }
-
-  .btn-gold {
-    padding: 11px 28px;
-    border-radius: 8px;
-    background: var(--gold);
-    border: none;
-    color: #050a12;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s;
-    text-decoration: none;
-  }
-
-  .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,168,76,0.3); }
-
-  .btn-text-teal {
-    background: none;
-    border: none;
-    color: var(--teal);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 13px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    transition: gap 0.3s;
-  }
-
-  .btn-text-teal:hover { gap: 10px; }
-
-  .btn-text-gold {
-    background: none;
-    border: none;
-    color: var(--gold-light);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 13px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    transition: gap 0.3s;
-  }
-
-  .btn-text-gold:hover { gap: 10px; }
-
-  .product-divider {
-    width: 40px;
-    height: 3px;
-    border-radius: 2px;
-    margin-bottom: 32px;
-  }
-
-  .divider-teal { background: linear-gradient(to right, var(--teal), transparent); }
-  .divider-gold { background: linear-gradient(to right, var(--gold), transparent); }
-
   /* ── DIVIDER ── */
   .divider-line {
     max-width: 1280px;
     margin: 0 auto;
     height: 1px;
     background: linear-gradient(to right, transparent, var(--glass-border), transparent);
+  }
+
+  /* ── WHAT IS DIGIDOC ── */
+  .about-section {
+    padding: 120px 60px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .about-header {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .about-text {
+    font-size: 17px;
+    color: var(--muted);
+    line-height: 1.9;
+    font-weight: 300;
+  }
+
+  .about-text strong {
+    color: var(--white);
+    font-weight: 500;
+  }
+
+  .about-text p + p {
+    margin-top: 20px;
+  }
+
+  .about-highlights {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .highlight-card {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 28px 24px;
+    transition: all 0.4s;
+    text-align: center;
+  }
+
+  .highlight-card:hover {
+    border-color: rgba(0,212,200,0.2);
+    transform: translateY(-4px);
+    background: rgba(0,212,200,0.04);
+  }
+
+  .highlight-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: var(--teal-dim);
+    border: 1px solid rgba(0,212,200,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin: 0 auto 16px;
+  }
+
+  .highlight-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+
+  .highlight-desc {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ── MODULES ── */
+  .modules-section {
+    padding: 120px 60px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .modules-header {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+
+  .modules-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+
+  .module-card {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 18px;
+    padding: 32px 28px;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .module-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
+    background: radial-gradient(ellipse at 30% 0%, rgba(0,212,200,0.06) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+
+  .module-card:hover::before { opacity: 1; }
+
+  .module-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(0,212,200,0.2);
+    box-shadow: 0 24px 60px rgba(0,212,200,0.08);
+  }
+
+  .module-emoji {
+    font-size: 36px;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .module-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+
+  .module-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .module-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .module-features li::before {
+    content: '\2713';
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--teal-dim);
+    border: 1px solid rgba(0,212,200,0.2);
+    color: var(--teal);
+    font-size: 8px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
   }
 
   /* ── HOW IT WORKS ── */
@@ -736,7 +708,7 @@
     left: 12.5%;
     right: 12.5%;
     height: 1px;
-    background: linear-gradient(90deg, var(--teal), var(--gold-light), var(--teal));
+    background: linear-gradient(90deg, var(--teal), rgba(0,212,200,0.3), var(--teal));
     opacity: 0.3;
   }
 
@@ -765,17 +737,10 @@
     transition: all 0.4s;
   }
 
-  .step-item:nth-child(even) .step-number { color: var(--gold-light); }
-
   .step-item:hover .step-number {
     border-color: var(--teal);
     background: var(--teal-dim);
     transform: scale(1.1);
-  }
-
-  .step-item:nth-child(even):hover .step-number {
-    border-color: var(--gold);
-    background: var(--gold-dim);
   }
 
   .step-icon {
@@ -797,308 +762,204 @@
     line-height: 1.7;
   }
 
-  /* ── WHY JKS ── */
-  .why-section {
+  .step-timeline {
+    font-size: 11px;
+    color: var(--teal);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin-top: 12px;
+  }
+
+  /* ── BENEFITS ── */
+  .benefits-section {
     padding: 120px 60px;
     max-width: 1400px;
     margin: 0 auto;
   }
 
-  .why-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-    margin-top: 60px;
-  }
-
-  .why-visual {
-    position: relative;
-    height: 480px;
-  }
-
-  .orb-container {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .orb-outer {
-    width: 340px;
-    height: 340px;
-    border-radius: 50%;
-    border: 1px solid rgba(0,212,200,0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    animation: orb-rotate 20s linear infinite;
-  }
-
-  .orb-mid {
-    width: 240px;
-    height: 240px;
-    border-radius: 50%;
-    border: 1px solid rgba(0,212,200,0.18);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: orb-rotate 15s linear infinite reverse;
-  }
-
-  .orb-inner {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(0,212,200,0.15) 0%, rgba(0,212,200,0.03) 60%, transparent 100%);
-    border: 1px solid rgba(0,212,200,0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Syne', sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--teal);
-    letter-spacing: 0.1em;
+  .benefits-header {
     text-align: center;
+    margin-bottom: 80px;
   }
 
-  .orbit-dot {
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--teal);
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    box-shadow: 0 0 12px var(--teal);
-  }
-
-  .orbit-dot-gold {
-    background: var(--gold);
-    box-shadow: 0 0 12px var(--gold);
-    top: auto;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%, 50%);
-  }
-
-  @keyframes orb-rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-
-  .floating-chips {
-    position: absolute;
-    inset: 0;
-  }
-
-  .chip {
-    position: absolute;
-    background: var(--glass);
-    border: 1px solid var(--glass-border);
-    border-radius: 10px;
-    padding: 10px 16px;
-    font-size: 11px;
-    font-weight: 500;
-    white-space: nowrap;
-    backdrop-filter: blur(10px);
-    animation: chip-float 4s ease-in-out infinite;
-  }
-
-  .chip:nth-child(1) { top: 8%; left: 5%; animation-delay: 0s; }
-  .chip:nth-child(2) { top: 15%; right: 5%; animation-delay: 0.8s; color: var(--teal); border-color: rgba(0,212,200,0.2); }
-  .chip:nth-child(3) { bottom: 20%; left: 0%; animation-delay: 1.6s; color: var(--gold-light); border-color: rgba(201,168,76,0.2); }
-  .chip:nth-child(4) { bottom: 8%; right: 5%; animation-delay: 2.4s; }
-
-  @keyframes chip-float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
-  }
-
-  .why-points {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-  }
-
-  .why-point {
-    display: flex;
-    gap: 20px;
-    align-items: flex-start;
-    padding: 24px;
-    border-radius: 14px;
-    border: 1px solid transparent;
-    transition: all 0.4s;
-  }
-
-  .why-point:hover {
-    background: var(--glass);
-    border-color: var(--glass-border);
-  }
-
-  .why-icon {
-    width: 44px;
-    height: 44px;
-    border-radius: 12px;
-    background: var(--teal-dim);
-    border: 1px solid rgba(0,212,200,0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    flex-shrink: 0;
-  }
-
-  .why-point-title {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: 16px;
-    margin-bottom: 6px;
-    color: var(--white);
-  }
-
-  .why-point-desc {
-    font-size: 13px;
-    color: var(--muted);
-    line-height: 1.7;
-  }
-
-  /* ── TESTIMONIALS ── */
-  .testimonials {
-    padding: 100px 60px;
-    background: linear-gradient(180deg, transparent 0%, rgba(0,212,200,0.02) 50%, transparent 100%);
-  }
-
-  .testimonials-inner {
-    max-width: 1400px;
-    margin: 0 auto;
-  }
-
-  .testimonials-header {
-    text-align: center;
-    margin-bottom: 64px;
-  }
-
-  .testimonials-grid {
+  .benefits-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
   }
 
-  .testimonial-card {
+  .benefit-card {
     background: var(--glass);
     border: 1px solid var(--glass-border);
-    border-radius: 16px;
-    padding: 32px;
+    border-radius: 18px;
+    padding: 36px 32px;
     transition: all 0.4s;
     position: relative;
     overflow: hidden;
   }
 
-  .testimonial-card::before {
-    content: '\201C';
+  .benefit-card::before {
+    content: '';
     position: absolute;
-    top: -10px;
-    left: 24px;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 100px;
-    color: var(--teal);
-    opacity: 0.12;
-    line-height: 1;
-    pointer-events: none;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--teal), transparent);
+    opacity: 0;
+    transition: opacity 0.4s;
   }
 
-  .testimonial-card:hover {
-    border-color: rgba(0,212,200,0.15);
+  .benefit-card:hover::before { opacity: 1; }
+
+  .benefit-card:hover {
     transform: translateY(-4px);
+    border-color: rgba(0,212,200,0.15);
   }
 
-  .testimonial-stars {
-    display: flex;
-    gap: 3px;
-    margin-bottom: 16px;
-    font-size: 14px;
-    color: var(--gold-light);
-  }
-
-  .testimonial-text {
-    font-size: 14px;
-    color: var(--muted);
-    line-height: 1.8;
-    margin-bottom: 24px;
-    font-style: italic;
-    font-weight: 300;
-  }
-
-  .testimonial-author {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .author-avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--teal-dim), var(--gold-dim));
-    border: 1px solid var(--glass-border);
+  .benefit-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: var(--teal-dim);
+    border: 1px solid rgba(0,212,200,0.2);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: 14px;
-    color: var(--teal);
+    font-size: 24px;
+    margin-bottom: 20px;
   }
 
-  .author-name {
-    font-family: 'Syne', sans-serif;
-    font-weight: 600;
-    font-size: 13px;
-    color: var(--white);
-  }
-
-  .author-role {
-    font-size: 11px;
-    color: var(--muted);
-    margin-top: 2px;
-  }
-
-  /* ── TRUSTED BY ── */
-  .trusted-section {
-    padding: 60px 60px;
-    max-width: 1400px;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .trusted-label {
-    font-size: 10px;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 40px;
-  }
-
-  .trusted-logos {
-    display: flex;
-    gap: 60px;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .trusted-logo {
+  .benefit-title {
     font-family: 'Syne', sans-serif;
     font-weight: 700;
     font-size: 17px;
-    letter-spacing: 0.05em;
-    color: rgba(255,255,255,0.18);
-    transition: color 0.3s;
+    color: var(--white);
+    margin-bottom: 10px;
   }
 
-  .trusted-logo:hover { color: rgba(255,255,255,0.5); }
+  .benefit-desc {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* ── INTEGRATIONS ── */
+  .integrations-section {
+    padding: 120px 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .integrations-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .integrations-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+  }
+
+  .integration-pill {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 100px;
+    padding: 10px 22px;
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 400;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    backdrop-filter: blur(10px);
+  }
+
+  .integration-pill:hover {
+    border-color: rgba(0,212,200,0.3);
+    color: var(--teal);
+    background: var(--teal-dim);
+    transform: translateY(-2px);
+  }
+
+  .integration-pill .pill-icon {
+    font-size: 16px;
+  }
+
+  /* ── SECURITY ── */
+  .security-section {
+    padding: 120px 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .security-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .security-card {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .security-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--teal), rgba(0,212,200,0.3), var(--teal));
+  }
+
+  .security-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+  }
+
+  .security-col {
+    text-align: center;
+  }
+
+  .security-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: var(--teal-dim);
+    border: 1px solid rgba(0,212,200,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    margin: 0 auto 20px;
+  }
+
+  .security-col-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+
+  .security-col-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .security-col-list li {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
 
   /* ── PRICING ── */
   .pricing-section {
@@ -1157,9 +1018,9 @@
   .save-badge {
     font-size: 10px;
     letter-spacing: 0.1em;
-    background: var(--gold-dim);
-    color: var(--gold-light);
-    border: 1px solid rgba(201,168,76,0.25);
+    background: var(--teal-dim);
+    color: var(--teal);
+    border: 1px solid rgba(0,212,200,0.25);
     padding: 3px 10px;
     border-radius: 100px;
     font-weight: 600;
@@ -1197,7 +1058,7 @@
     position: absolute;
     top: 0; left: 0; right: 0;
     height: 2px;
-    background: linear-gradient(90deg, var(--teal), var(--gold-light));
+    background: linear-gradient(90deg, var(--teal), #00efe0);
   }
 
   .pricing-popular {
@@ -1324,103 +1185,13 @@
 
   .pricing-btn-solid:hover { background: #00efe0; transform: translateY(-1px); box-shadow: 0 8px 20px rgba(0,212,200,0.3); }
 
-  .pricing-btn-gold {
-    background: var(--gold);
-    border: none;
-    color: #050a12;
-  }
-
-  .pricing-btn-gold:hover { background: var(--gold-light); transform: translateY(-1px); box-shadow: 0 8px 20px rgba(201,168,76,0.3); }
-
-  /* ── FAQ ── */
-  .faq-section {
-    padding: 120px 60px;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .faq-header {
-    text-align: center;
-    margin-bottom: 64px;
-  }
-
-  .faq-list {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .faq-item {
-    background: var(--glass);
-    border: 1px solid var(--glass-border);
-    border-radius: 14px;
-    overflow: hidden;
-    transition: all 0.3s;
-  }
-
-  .faq-item:hover { border-color: rgba(255,255,255,0.12); }
-  .faq-item.open { border-color: rgba(0,212,200,0.2); }
-
-  .faq-question {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px 24px;
-    cursor: pointer;
-    gap: 16px;
-    width: 100%;
-    background: none;
-    border: none;
-    color: inherit;
-    font-family: inherit;
-    text-align: left;
-  }
-
-  .faq-question span {
-    font-family: 'Syne', sans-serif;
-    font-weight: 600;
-    font-size: 15px;
-    color: var(--white);
-  }
-
-  .faq-chevron {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    background: var(--glass);
-    border: 1px solid var(--glass-border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    transition: all 0.3s;
-    font-size: 12px;
-    color: var(--muted);
-  }
-
-  .faq-item.open .faq-chevron {
-    transform: rotate(180deg);
-    background: var(--teal-dim);
-    border-color: rgba(0,212,200,0.2);
+  .pricing-btn-teal-outline {
+    background: transparent;
+    border: 1px solid rgba(0,212,200,0.3);
     color: var(--teal);
   }
 
-  .faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease, padding 0.4s ease;
-  }
-
-  .faq-item.open .faq-answer {
-    max-height: 300px;
-  }
-
-  .faq-answer-inner {
-    padding: 0 24px 24px;
-    font-size: 14px;
-    color: var(--muted);
-    line-height: 1.8;
-  }
+  .pricing-btn-teal-outline:hover { background: var(--teal-dim); border-color: var(--teal); }
 
   /* ── CTA ── */
   .cta-section {
@@ -1458,7 +1229,7 @@
     right: -80px;
     width: 300px;
     height: 300px;
-    background: radial-gradient(ellipse, rgba(201,168,76,0.06) 0%, transparent 70%);
+    background: radial-gradient(ellipse, rgba(0,212,200,0.04) 0%, transparent 70%);
     pointer-events: none;
   }
 
@@ -1488,12 +1259,21 @@
     position: relative;
   }
 
-  .btn-xl {
+  .btn-call {
     padding: 16px 44px;
     font-size: 15px;
     border-radius: 10px;
     font-weight: 600;
+    background: transparent;
+    border: 1px solid var(--glass-border);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
   }
+
+  .btn-call:hover { border-color: var(--teal); color: var(--teal); }
 
   /* ── FOOTER ── */
   footer {
@@ -1624,88 +1404,6 @@
     transform: translateY(0);
   }
 
-  /* ── GRID LINES ── */
-  .grid-overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-    background-image:
-      linear-gradient(rgba(0,212,200,0.02) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0,212,200,0.02) 1px, transparent 1px);
-    background-size: 80px 80px;
-    mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
-    -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
-  }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 1024px) {
-    nav { padding: 16px 24px; }
-    .nav-links { display: none; }
-    .nav-cta { display: none; }
-    .hamburger { display: flex; }
-    .mobile-menu { display: flex; }
-    .products { padding: 80px 24px; }
-    .products-grid { grid-template-columns: 1fr; }
-    .product-card { padding: 40px 32px; }
-    .why-section { padding: 80px 24px; }
-    .why-grid { grid-template-columns: 1fr; gap: 40px; }
-    .why-visual { height: 300px; }
-    .how-section { padding: 80px 24px; }
-    .how-steps { grid-template-columns: repeat(2, 1fr); gap: 40px; }
-    .how-steps::before { display: none; }
-    .testimonials { padding: 80px 24px; }
-    .testimonials-grid { grid-template-columns: 1fr; }
-    .pricing-section { padding: 80px 24px; }
-    .pricing-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
-    .faq-section { padding: 80px 24px; }
-    .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
-    .hero-stats { gap: 32px; }
-    .hero { padding: 100px 24px 60px; }
-    .cta-section { padding: 80px 24px; }
-    .cta-card { padding: 60px 32px; }
-    footer { padding: 40px 24px; }
-  }
-
-  @media (max-width: 768px) {
-    .hero-headline { font-size: clamp(36px, 10vw, 52px); }
-    .hero-stats { gap: 24px; }
-    .stat-num { font-size: 28px; }
-    .hero-scroll { display: none; }
-    .product-name { font-size: 28px; }
-    .section-title { font-size: clamp(28px, 6vw, 42px); }
-    .how-steps { grid-template-columns: 1fr; gap: 32px; }
-    .orb-outer { width: 240px; height: 240px; }
-    .orb-mid { width: 170px; height: 170px; }
-    .orb-inner { width: 100px; height: 100px; font-size: 11px; }
-    .testimonials-grid { grid-template-columns: 1fr; }
-    .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-    .footer-bottom { flex-direction: column; align-items: flex-start; }
-    .cta-card { padding: 48px 24px; }
-    .cta-title { font-size: clamp(28px, 8vw, 48px); }
-    .trusted-logos { gap: 28px; }
-    .trusted-logo { font-size: 13px; }
-  }
-
-  @media (max-width: 480px) {
-    nav { padding: 14px 16px; }
-    .logo-name { font-size: 14px; }
-    .hero { padding: 90px 16px 50px; }
-    .hero-sub { font-size: 14px; }
-    .hero-actions { flex-direction: column; align-items: center; }
-    .hero-stats { flex-direction: column; gap: 20px; }
-    .product-card { padding: 32px 24px; }
-    .products { padding: 60px 16px; }
-    .how-section { padding: 60px 16px; }
-    .why-section { padding: 60px 16px; }
-    .testimonials { padding: 60px 16px; }
-    .pricing-section { padding: 60px 16px; }
-    .faq-section { padding: 60px 16px; }
-    .cta-section { padding: 60px 16px; }
-    footer { padding: 32px 16px; }
-    .pricing-grid { max-width: 100%; }
-  }
-
   /* ── MODAL OVERLAY ── */
   .modal-overlay {
     position: fixed;
@@ -1820,9 +1518,7 @@
   .form-textarea::placeholder { color: rgba(122,143,168,0.5); }
 
   .form-select { appearance: none; cursor: pointer; }
-
   .form-select option { background: var(--bg); color: var(--white); }
-
   .form-textarea { resize: vertical; min-height: 80px; }
 
   .form-row {
@@ -1885,68 +1581,6 @@
 
   @keyframes spin { to { transform: translateY(-50%) rotate(360deg); } }
 
-  /* ── VIDEO MODAL ── */
-  .video-box {
-    background: #000;
-    border: 1px solid var(--glass-border);
-    border-radius: 16px;
-    max-width: 900px;
-    width: 100%;
-    aspect-ratio: 16/9;
-    position: relative;
-    overflow: hidden;
-    transform: translateY(20px) scale(0.97);
-    transition: transform 0.3s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .modal-overlay.active .video-box { transform: translateY(0) scale(1); }
-
-  .video-placeholder {
-    text-align: center;
-    color: var(--muted);
-  }
-
-  .video-placeholder .play-icon {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background: var(--teal);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 16px;
-    font-size: 28px;
-    color: #050a12;
-    cursor: pointer;
-    transition: all 0.3s;
-  }
-
-  .video-placeholder .play-icon:hover { transform: scale(1.1); box-shadow: 0 0 40px rgba(0,212,200,0.4); }
-
-  .video-close {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: rgba(0,0,0,0.6);
-    border: 1px solid rgba(255,255,255,0.15);
-    color: white;
-    font-size: 18px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 2;
-    transition: all 0.3s;
-  }
-
-  .video-close:hover { background: rgba(0,0,0,0.9); }
-
   /* ── TOAST ── */
   .toast {
     position: fixed;
@@ -1988,7 +1622,6 @@
   }
 
   .toast-text strong { display: block; margin-bottom: 2px; }
-
   .toast-text span { color: var(--muted); font-size: 12px; }
 
   /* ── BACK TO TOP ── */
@@ -2025,16 +1658,73 @@
     background: var(--teal-dim);
   }
 
-  /* ── ACTIVE NAV LINK ── */
-  .nav-links a.active {
-    color: var(--teal);
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    .nav-cta { display: none; }
+    .hamburger { display: flex; }
+    .mobile-menu { display: flex; }
+    .hero { padding: 100px 24px 60px; }
+    .hero-stats { gap: 32px; }
+    .about-section { padding: 80px 24px; }
+    .about-grid { grid-template-columns: 1fr; gap: 48px; }
+    .modules-section { padding: 80px 24px; }
+    .modules-grid { grid-template-columns: repeat(2, 1fr); }
+    .how-section { padding: 80px 24px; }
+    .how-steps { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+    .how-steps::before { display: none; }
+    .benefits-section { padding: 80px 24px; }
+    .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+    .integrations-section { padding: 80px 24px; }
+    .security-section { padding: 80px 24px; }
+    .security-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    .security-card { padding: 40px 32px; }
+    .pricing-section { padding: 80px 24px; }
+    .pricing-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+    .cta-section { padding: 80px 24px; }
+    .cta-card { padding: 60px 32px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+    footer { padding: 40px 24px; }
   }
 
-  .nav-links a.active::after {
-    width: 100%;
+  @media (max-width: 768px) {
+    .hero-headline { font-size: clamp(36px, 10vw, 52px); }
+    .hero-stats { gap: 24px; }
+    .stat-num { font-size: 28px; }
+    .hero-scroll { display: none; }
+    .section-title { font-size: clamp(28px, 6vw, 42px); }
+    .modules-grid { grid-template-columns: 1fr 1fr; }
+    .how-steps { grid-template-columns: 1fr; gap: 32px; }
+    .benefits-grid { grid-template-columns: 1fr; }
+    .security-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; }
+    .cta-card { padding: 48px 24px; }
+    .cta-title { font-size: clamp(28px, 8vw, 48px); }
+    .about-text { font-size: 15px; }
   }
 
   @media (max-width: 480px) {
+    nav { padding: 14px 16px; }
+    .logo-name { font-size: 14px; }
+    .hero { padding: 90px 16px 50px; }
+    .hero-sub { font-size: 14px; }
+    .hero-actions { flex-direction: column; align-items: center; }
+    .hero-stats { flex-direction: column; gap: 20px; }
+    .about-section { padding: 60px 16px; }
+    .about-highlights { grid-template-columns: 1fr; }
+    .modules-section { padding: 60px 16px; }
+    .modules-grid { grid-template-columns: 1fr; }
+    .how-section { padding: 60px 16px; }
+    .benefits-section { padding: 60px 16px; }
+    .integrations-section { padding: 60px 16px; }
+    .security-section { padding: 60px 16px; }
+    .security-card { padding: 32px 20px; }
+    .pricing-section { padding: 60px 16px; }
+    .pricing-grid { max-width: 100%; }
+    .cta-section { padding: 60px 16px; }
+    footer { padding: 32px 16px; }
     .form-row { grid-template-columns: 1fr; }
     .modal-box { padding: 32px 24px; }
     .toast { left: 16px; right: 16px; bottom: 16px; max-width: none; }
@@ -2049,23 +1739,11 @@
 <div class="grid-overlay"></div>
 <canvas id="canvas-bg"></canvas>
 
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobile-menu">
-  <a href="#products" onclick="closeMobileMenu()">Products</a>
-  <a href="#how" onclick="closeMobileMenu()">How it Works</a>
-  <a href="#why" onclick="closeMobileMenu()">Why JKS</a>
-  <a href="#testimonials" onclick="closeMobileMenu()">Stories</a>
-  <a href="#pricing" onclick="closeMobileMenu()">Pricing</a>
-  <a href="#contact" onclick="closeMobileMenu()">Contact</a>
-  <div class="mobile-cta">
-    <button class="btn-ghost" style="padding:12px 32px;font-size:15px">Sign In</button>
-    <button class="btn-primary" style="padding:12px 32px;font-size:15px" onclick="closeMobileMenu();openModal('demo-modal','both')">Book a Demo</button>
-  </div>
-</div>
-
-<!-- NAV -->
+<!-- ═══════════════════════════════════════════ -->
+<!-- NAV                                        -->
+<!-- ═══════════════════════════════════════════ -->
 <nav>
-  <a class="nav-logo" href="#">
+  <a href="/" class="nav-logo">
     <div class="logo-mark">
       <svg viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect width="38" height="38" rx="10" fill="rgba(0,212,200,0.1)" stroke="rgba(0,212,200,0.25)" stroke-width="1"/>
@@ -2079,125 +1757,222 @@
       <span class="logo-sub">Pvt Ltd &middot; Est. India</span>
     </div>
   </a>
+
   <ul class="nav-links">
-    <li><a href="#products">Products</a></li>
-    <li><a href="#how">How it Works</a></li>
-    <li><a href="#why">Why JKS</a></li>
-    <li><a href="#testimonials">Stories</a></li>
+    <li><a href="/">Home</a></li>
+    <li><a href="/digidoc/" class="active">DigiDoc</a></li>
+    <li><a href="/docademy/">Docademy</a></li>
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+
   <div class="nav-cta">
-    <button class="btn-ghost">Sign In</button>
-    <button class="btn-primary" onclick="openModal('demo-modal','both')">Book a Demo</button>
+    <button class="btn-ghost" onclick="openModal('demo-modal','digidoc')">Book a Demo</button>
   </div>
-  <button class="hamburger" id="hamburger" aria-label="Menu">
+
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu">
     <span></span>
     <span></span>
     <span></span>
   </button>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-eyebrow">Innovating Indian Healthcare</div>
-  <h1 class="hero-headline">
-    Where <em>Clinical</em> Meets<br>
-    <span class="gold">Digital Brilliance</span>
-  </h1>
-  <p class="hero-sub">
-    JKS Medtech builds software that transforms hospitals, clinics, and medical education &mdash; purpose-built for India's evolving healthcare landscape.
-  </p>
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/" onclick="closeMobileMenu()">Home</a>
+  <a href="/digidoc/" onclick="closeMobileMenu()">DigiDoc</a>
+  <a href="/docademy/" onclick="closeMobileMenu()">Docademy</a>
+  <a href="#pricing" onclick="closeMobileMenu()">Pricing</a>
+  <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+  <div class="mobile-cta">
+    <button class="btn-primary" onclick="closeMobileMenu();openModal('demo-modal','digidoc')">Book a Demo</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- HERO                                       -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="hero" id="hero">
+  <div class="hero-eyebrow">Cloud Hospital Platform</div>
+  <h1 class="hero-headline">The Hospital OS That <em>Actually</em> Works</h1>
+  <p class="hero-sub">DigiDoc is a fully integrated cloud-based hospital management system &mdash; OPD, IPD, EMR, telemedicine, billing, pharmacy, and lab unified in one elegant platform. Built for Indian healthcare.</p>
   <div class="hero-actions">
-    <button class="btn-primary btn-large" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Explore Products</button>
-    <button class="btn-ghost btn-large" onclick="openModal('demo-modal','both')">Book a Demo</button>
+    <button class="btn-teal btn-large" onclick="openModal('demo-modal','digidoc')">Book a Demo</button>
+    <a href="#modules" class="btn-ghost btn-large">See All Modules</a>
   </div>
   <div class="hero-stats">
     <div class="stat-item">
-      <div class="stat-num" data-target="200" data-suffix="+">200<span>+</span></div>
-      <div class="stat-label">Hospitals Onboarded</div>
+      <div class="stat-num">200<span>+</span></div>
+      <div class="stat-label">Hospitals</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num" data-target="50" data-suffix="k+">50<span>k+</span></div>
-      <div class="stat-label">Learners Enrolled</div>
+      <div class="stat-num">15<span>L+</span></div>
+      <div class="stat-label">Patients Managed</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num" data-target="99.9" data-suffix="%">99<span>.9%</span></div>
-      <div class="stat-label">Uptime SLA</div>
+      <div class="stat-num">99.9<span>%</span></div>
+      <div class="stat-label">Uptime</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num" data-target="12" data-suffix="+">12<span>+</span></div>
-      <div class="stat-label">States Covered</div>
+      <div class="stat-num">50<span>+</span></div>
+      <div class="stat-label">Integrations</div>
     </div>
   </div>
   <div class="hero-scroll">
+    <span>Explore</span>
     <div class="scroll-line"></div>
-    <span>Scroll</span>
   </div>
 </section>
 
-<!-- PRODUCTS -->
-<section class="products" id="products">
-  <div class="products-header reveal">
-    <div class="section-label">Our Flagship Products</div>
-    <h2 class="section-title">Two Platforms.<br>One Transformative Vision.</h2>
-    <p class="section-subtitle centered">From hospital operations to medical education, our integrated ecosystem covers the full spectrum of healthcare technology.</p>
+<div class="divider-line"></div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- WHAT IS DIGIDOC                            -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="about-section" id="about">
+  <div class="about-header reveal">
+    <div class="section-label">What is DigiDoc</div>
+    <h2 class="section-title">One Platform. Every Department.<br>Zero Fragmentation.</h2>
   </div>
-
-  <div class="products-grid">
-
-    <!-- DIGIDOC -->
-    <div class="product-card digidoc reveal">
-      <div class="card-bg-text" style="color:#00d4c8">DD</div>
-      <div class="product-badge badge-teal">
-        <span>&#9679;</span> HealthTech SaaS
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p><strong>Indian hospitals deserve better than duct-taped software.</strong> Most facilities run on 5&ndash;7 disconnected tools &mdash; one for billing, another for EMR, yet another for pharmacy, and a spreadsheet holding everything together with prayers. The result? Data silos, billing errors, compliance nightmares, and staff drowning in manual work.</p>
+      <p>DigiDoc replaces that entire fragmented ecosystem with <strong>a single, beautifully designed cloud platform</strong>. From the moment a patient walks in for an OPD appointment to their final discharge summary, every workflow is connected, automated, and auditable. No more re-entering data. No more lost lab reports. No more billing discrepancies at month-end.</p>
+      <p>Built ground-up for the Indian healthcare ecosystem, DigiDoc is <strong>ABDM-compliant, GST-ready, and works in Hindi + English</strong> &mdash; because real hospital software has to work for real Indian hospitals.</p>
+    </div>
+    <div class="about-highlights reveal">
+      <div class="highlight-card">
+        <div class="highlight-icon">&#9729;</div>
+        <div class="highlight-title">Cloud-Native</div>
+        <div class="highlight-desc">Access from anywhere, any device. No server rooms needed.</div>
       </div>
-      <div class="product-divider divider-teal"></div>
-      <div class="product-icon icon-teal">&#127973;</div>
-      <div class="product-name name-teal">DigiDoc</div>
-      <div class="product-tagline">The Cloud Hospital Platform Hospitals Actually Love</div>
-      <p class="product-desc">
-        A fully integrated cloud-based hospital management system built for Indian healthcare &mdash; with telemedicine, EMR, billing, pharmacy, and laboratory modules unified in one elegant platform.
-      </p>
-      <ul class="feature-list">
-        <li class="check-teal">End-to-end Cloud Hospital Management System (HMS)</li>
-        <li class="check-teal">Integrated Telemedicine with HD video consultations</li>
-        <li class="check-teal">Smart EMR with ICD-10 coding &amp; prescriptions</li>
-        <li class="check-teal">Real-time billing, pharmacy &amp; lab modules</li>
-        <li class="check-teal">ABDM &amp; NHA compliance ready</li>
-        <li class="check-teal">Multi-branch &amp; multi-specialty support</li>
-      </ul>
-      <div class="card-actions">
-        <button class="btn-teal">Get a Demo</button>
-        <a href="/digidoc/" class="btn-text-teal" style="text-decoration:none">Learn More &rarr;</a>
+      <div class="highlight-card">
+        <div class="highlight-icon">&#127470;&#127475;</div>
+        <div class="highlight-title">ABDM Ready</div>
+        <div class="highlight-desc">ABHA ID, Health Facility Registry, consent management built-in.</div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon">&#127959;</div>
+        <div class="highlight-title">Multi-Branch</div>
+        <div class="highlight-desc">Manage multiple hospitals from one unified dashboard.</div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon">&#129302;</div>
+        <div class="highlight-title">AI-Powered</div>
+        <div class="highlight-desc">Predictive analytics, smart prescriptions, clinical insights.</div>
       </div>
     </div>
+  </div>
+</section>
 
-    <!-- DOCADEMY -->
-    <div class="product-card docademy reveal">
-      <div class="card-bg-text" style="color:#c9a84c">DA</div>
-      <div class="product-badge badge-gold">
-        <span>&#9679;</span> EduTech SaaS
-      </div>
-      <div class="product-divider divider-gold"></div>
-      <div class="product-icon icon-gold">&#127891;</div>
-      <div class="product-name name-gold">Docademy</div>
-      <div class="product-tagline">Medical Education, Reimagined for the Modern Clinician</div>
-      <p class="product-desc">
-        A premium medical learning management system delivering structured CME courses, clinical case simulations, and competency tracking &mdash; for medical colleges, hospitals, and healthcare institutions.
-      </p>
-      <ul class="feature-list">
-        <li class="check-gold">Structured CME &amp; CPD course delivery</li>
-        <li class="check-gold">Interactive clinical case simulations</li>
-        <li class="check-gold">Competency mapping &amp; progress analytics</li>
-        <li class="check-gold">Live &amp; recorded lecture management</li>
-        <li class="check-gold">Assessment engine with MCQs &amp; OSCEs</li>
-        <li class="check-gold">Institutional &amp; individual subscription models</li>
+<div class="divider-line"></div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- CORE MODULES                               -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="modules-section" id="modules">
+  <div class="modules-header reveal">
+    <div class="section-label">Core Modules</div>
+    <h2 class="section-title">Everything Your Hospital Needs.<br>Nothing It Doesn't.</h2>
+    <p class="section-subtitle centered">Eight deeply integrated modules that cover every clinical and administrative workflow &mdash; from registration desk to boardroom analytics.</p>
+  </div>
+
+  <div class="modules-grid">
+
+    <!-- OPD Management -->
+    <div class="module-card reveal">
+      <span class="module-emoji">&#128197;</span>
+      <div class="module-title">OPD Management</div>
+      <ul class="module-features">
+        <li>Smart appointment scheduling with multi-slot support</li>
+        <li>Real-time queue management &amp; token display</li>
+        <li>Doctor dashboards with patient history at a glance</li>
+        <li>Multi-department routing &amp; referral tracking</li>
       </ul>
-      <div class="card-actions">
-        <button class="btn-gold">Start Free Trial</button>
-        <a href="/docademy/" class="btn-text-gold" style="text-decoration:none">Learn More &rarr;</a>
-      </div>
+    </div>
+
+    <!-- IPD & Ward Management -->
+    <div class="module-card reveal">
+      <span class="module-emoji">&#127975;</span>
+      <div class="module-title">IPD &amp; Ward Management</div>
+      <ul class="module-features">
+        <li>Visual bed allocation with occupancy heatmaps</li>
+        <li>One-click admission, transfer &amp; discharge</li>
+        <li>Nursing station dashboards &amp; task management</li>
+        <li>Ward-wise census &amp; real-time bed availability</li>
+      </ul>
+    </div>
+
+    <!-- Smart EMR -->
+    <div class="module-card reveal">
+      <span class="module-emoji">&#128221;</span>
+      <div class="module-title">Smart EMR</div>
+      <ul class="module-features">
+        <li>ICD-10/ICD-11 coding with intelligent search</li>
+        <li>Smart prescriptions with drug interaction alerts</li>
+        <li>Complete medical history &amp; timeline view</li>
+        <li>Voice-to-text notes &amp; clinical decision support</li>
+      </ul>
+    </div>
+
+    <!-- Telemedicine -->
+    <div class="module-card reveal">
+      <span class="module-emoji">&#128247;</span>
+      <div class="module-title">Telemedicine</div>
+      <ul class="module-features">
+        <li>HD video consultations with screen sharing</li>
+        <li>Digital e-prescriptions &amp; follow-up scheduling</li>
+        <li>Remote vitals monitoring integration</li>
+        <li>Patient mobile app with appointment booking</li>
+      </ul>
+    </div>
+
+    <!-- Billing & Revenue -->
+    <div class="module-card reveal">
+      <span class="module-emoji">&#128176;</span>
+      <div class="module-title">Billing &amp; Revenue</div>
+      <ul class="module-features">
+        <li>Insurance TPA integration &amp; pre-auth workflows</li>
+        <li>Auto-billing from clinical orders &amp; procedures</li>
+        <li>GST-compliant invoicing &amp; receipt generation</li>
+        <li>Payment gateway &amp; revenue analytics dashboard</li>
+      </ul>
+    </div>
+
+    <!-- Pharmacy Module -->
+    <div class="module-card reveal">
+      <span class="module-emoji">&#128138;</span>
+      <div class="module-title">Pharmacy Module</div>
+      <ul class="module-features">
+        <li>Real-time inventory with auto-reorder points</li>
+        <li>Drug interaction &amp; allergy alerts at dispensing</li>
+        <li>Batch tracking &amp; expiry management</li>
+        <li>Purchase orders, GRN &amp; vendor management</li>
+      </ul>
+    </div>
+
+    <!-- Laboratory (LIS) -->
+    <div class="module-card reveal">
+      <span class="module-emoji">&#128300;</span>
+      <div class="module-title">Laboratory (LIS)</div>
+      <ul class="module-features">
+        <li>One-click test ordering from doctor console</li>
+        <li>Barcode-based sample tracking &amp; routing</li>
+        <li>Auto report generation in NABL format</li>
+        <li>Bi-directional lab equipment integration</li>
+      </ul>
+    </div>
+
+    <!-- Radiology (RIS/PACS) -->
+    <div class="module-card reveal">
+      <span class="module-emoji">&#128225;</span>
+      <div class="module-title">Radiology (RIS/PACS)</div>
+      <ul class="module-features">
+        <li>DICOM viewer with measurement tools</li>
+        <li>Structured report templates &amp; voice dictation</li>
+        <li>Secure image sharing with referral doctors</li>
+        <li>Modality worklist &amp; scheduler integration</li>
+      </ul>
     </div>
 
   </div>
@@ -2205,95 +1980,181 @@
 
 <div class="divider-line"></div>
 
-<!-- HOW IT WORKS -->
-<section class="how-section" id="how">
+<!-- ═══════════════════════════════════════════ -->
+<!-- HOW DIGIDOC WORKS                          -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="how-section" id="how-it-works">
   <div class="how-header reveal">
     <div class="section-label">How It Works</div>
-    <h2 class="section-title">From Signup to Transformation<br>in Four Simple Steps</h2>
-    <p class="section-subtitle centered">Getting started with JKS Medtech is effortless. Our team ensures a smooth onboarding process so you see results fast.</p>
+    <h2 class="section-title">From Sign-Up to Go-Live<br>in Weeks, Not Months</h2>
+    <p class="section-subtitle centered">Our proven 4-step deployment process ensures zero disruption to your daily operations. We handle the heavy lifting so your team can focus on patients.</p>
   </div>
+
   <div class="how-steps">
     <div class="step-item reveal">
       <div class="step-number">01</div>
-      <div class="step-icon">&#128222;</div>
-      <div class="step-title">Book a Discovery Call</div>
-      <div class="step-desc">Tell us about your hospital or institution. We'll understand your workflows, pain points, and goals to recommend the right solution.</div>
+      <div class="step-icon">&#9881;</div>
+      <div class="step-title">Onboarding &amp; Setup</div>
+      <div class="step-desc">Our implementation team configures DigiDoc to match your hospital&rsquo;s departments, workflows, fee structures, and branding. Everything is customized to your needs.</div>
+      <div class="step-timeline">2&ndash;3 Weeks</div>
     </div>
     <div class="step-item reveal">
       <div class="step-number">02</div>
-      <div class="step-icon">&#9881;&#65039;</div>
-      <div class="step-title">Tailored Configuration</div>
-      <div class="step-desc">Our team configures DigiDoc or Docademy to match your exact needs &mdash; departments, roles, billing rules, course structures, and more.</div>
+      <div class="step-icon">&#128451;</div>
+      <div class="step-title">Data Migration</div>
+      <div class="step-desc">We import patient records, billing history, and inventory data from your legacy HMS, Excel sheets, or even paper records. Zero data loss guaranteed.</div>
+      <div class="step-timeline">Parallel Process</div>
     </div>
     <div class="step-item reveal">
       <div class="step-number">03</div>
-      <div class="step-icon">&#128640;</div>
-      <div class="step-title">Guided Onboarding</div>
-      <div class="step-desc">Hands-on training for your staff, data migration from legacy systems, and parallel-run support until you're fully confident.</div>
+      <div class="step-icon">&#127891;</div>
+      <div class="step-title">Staff Training</div>
+      <div class="step-desc">Role-based training for doctors, nurses, billing staff, and admins. Video tutorials, quick-reference guides, and optional on-site training sessions.</div>
+      <div class="step-timeline">1&ndash;2 Weeks</div>
     </div>
     <div class="step-item reveal">
       <div class="step-number">04</div>
-      <div class="step-icon">&#128200;</div>
-      <div class="step-title">Scale &amp; Optimize</div>
-      <div class="step-desc">Go live with dedicated support. Use built-in analytics to optimize operations, track outcomes, and scale across branches.</div>
+      <div class="step-icon">&#128640;</div>
+      <div class="step-title">Go Live &amp; Scale</div>
+      <div class="step-desc">Parallel run with your existing system, then full deployment. 24/7 support during transition. Scale to new branches whenever you&rsquo;re ready.</div>
+      <div class="step-timeline">24/7 Support</div>
     </div>
   </div>
 </section>
 
 <div class="divider-line"></div>
 
-<!-- WHY JKS -->
-<section class="why-section" id="why">
-  <div class="why-grid">
-    <div class="why-visual reveal">
-      <div class="floating-chips">
-        <div class="chip">&#128737;&#65039; HIPAA Compliant</div>
-        <div class="chip">&#9889; Real-time Sync</div>
-        <div class="chip">&#127470;&#127475; Made in India</div>
-        <div class="chip">&#9729;&#65039; Multi-cloud Ready</div>
-      </div>
-      <div class="orb-container">
-        <div class="orb-outer">
-          <div class="orbit-dot"></div>
-          <div class="orbit-dot orbit-dot-gold"></div>
-          <div class="orb-mid">
-            <div class="orb-inner">JKS<br>MEDTECH</div>
-          </div>
-        </div>
-      </div>
+<!-- ═══════════════════════════════════════════ -->
+<!-- KEY BENEFITS                               -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="benefits-section" id="benefits">
+  <div class="benefits-header reveal">
+    <div class="section-label">Why DigiDoc</div>
+    <h2 class="section-title">Benefits That Impact<br>Your Bottom Line</h2>
+    <p class="section-subtitle centered">DigiDoc doesn't just digitize paperwork &mdash; it fundamentally transforms how your hospital operates, from revenue cycle to patient satisfaction.</p>
+  </div>
+
+  <div class="benefits-grid">
+
+    <div class="benefit-card reveal">
+      <div class="benefit-icon">&#9889;</div>
+      <div class="benefit-title">10x Faster Billing</div>
+      <div class="benefit-desc">Auto-generate bills from clinical orders, process insurance claims, and create GST-compliant invoices in seconds &mdash; not hours. Reduce billing errors by 95%.</div>
     </div>
-    <div>
-      <div class="section-label reveal">Why Choose JKS Medtech</div>
-      <h2 class="section-title reveal">Built for India.<br>Trusted by Clinicians.</h2>
-      <div class="why-points">
-        <div class="why-point reveal">
-          <div class="why-icon">&#127959;&#65039;</div>
-          <div>
-            <div class="why-point-title">Healthcare-First Architecture</div>
-            <div class="why-point-desc">Every feature is designed around clinical workflows &mdash; not retrofitted from generic enterprise software. We understand the OPD queue, the pharmacy counter, and the ICU bedside.</div>
-          </div>
-        </div>
-        <div class="why-point reveal">
-          <div class="why-icon">&#127470;&#127475;</div>
-          <div>
-            <div class="why-point-title">Localized for India's Complexity</div>
-            <div class="why-point-desc">Multi-language support, GST billing, ABHA integration, and compliance with India's Digital Health Mission &mdash; right out of the box, not as an afterthought.</div>
-          </div>
-        </div>
-        <div class="why-point reveal">
-          <div class="why-icon">&#128274;</div>
-          <div>
-            <div class="why-point-title">Enterprise-Grade Security</div>
-            <div class="why-point-desc">End-to-end encryption, role-based access, audit logs, and multi-factor authentication across all modules. Your patient data is always protected.</div>
-          </div>
-        </div>
-        <div class="why-point reveal">
-          <div class="why-icon">&#128222;</div>
-          <div>
-            <div class="why-point-title">24/7 Dedicated Support</div>
-            <div class="why-point-desc">A healthcare operations team that answers the phone. Onboarding specialists, training programs, and priority SLAs for critical hospital workflows.</div>
-          </div>
-        </div>
+
+    <div class="benefit-card reveal">
+      <div class="benefit-icon">&#128196;</div>
+      <div class="benefit-title">Zero Paper, Zero Errors</div>
+      <div class="benefit-desc">Fully digital workflow from patient registration to discharge summary. No more lost files, illegible handwriting, or data re-entry across departments.</div>
+    </div>
+
+    <div class="benefit-card reveal">
+      <div class="benefit-icon">&#127470;&#127475;</div>
+      <div class="benefit-title">ABDM &amp; NHA Compliant</div>
+      <div class="benefit-desc">ABHA ID creation, Health Facility Registry integration, and consent management built natively into every workflow. Stay ahead of regulatory requirements.</div>
+    </div>
+
+    <div class="benefit-card reveal">
+      <div class="benefit-icon">&#127959;</div>
+      <div class="benefit-title">Multi-Branch Ready</div>
+      <div class="benefit-desc">Manage multiple hospitals, clinics, and diagnostic centers from one unified dashboard. Consolidated reporting, shared patient records, centralized admin.</div>
+    </div>
+
+    <div class="benefit-card reveal">
+      <div class="benefit-icon">&#129504;</div>
+      <div class="benefit-title">AI-Powered Insights</div>
+      <div class="benefit-desc">Predictive analytics for bed occupancy forecasting, revenue optimization, patient flow patterns, and clinical outcome tracking. Data-driven decisions, not guesswork.</div>
+    </div>
+
+    <div class="benefit-card reveal">
+      <div class="benefit-icon">&#128737;</div>
+      <div class="benefit-title">Military-Grade Security</div>
+      <div class="benefit-desc">AES-256 encryption at rest, TLS 1.3 in transit, role-based access controls, comprehensive audit trails, and SOC 2 security practices. Your data is fortress-safe.</div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider-line"></div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- INTEGRATION ECOSYSTEM                      -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="integrations-section" id="integrations">
+  <div class="integrations-header reveal">
+    <div class="section-label">Integrations</div>
+    <h2 class="section-title">Connects With Everything<br>Your Hospital Already Uses</h2>
+    <p class="section-subtitle centered">DigiDoc plays well with the tools, gateways, and government systems your hospital depends on. Out-of-the-box integrations, zero headaches.</p>
+  </div>
+
+  <div class="integrations-grid reveal">
+    <div class="integration-pill"><span class="pill-icon">&#127470;&#127475;</span> ABHA / ABDM</div>
+    <div class="integration-pill"><span class="pill-icon">&#128137;</span> CoWIN</div>
+    <div class="integration-pill"><span class="pill-icon">&#128179;</span> Razorpay</div>
+    <div class="integration-pill"><span class="pill-icon">&#128241;</span> PhonePe</div>
+    <div class="integration-pill"><span class="pill-icon">&#128178;</span> Paytm</div>
+    <div class="integration-pill"><span class="pill-icon">&#128296;</span> HL7 FHIR</div>
+    <div class="integration-pill"><span class="pill-icon">&#128225;</span> PACS / DICOM</div>
+    <div class="integration-pill"><span class="pill-icon">&#128172;</span> WhatsApp API</div>
+    <div class="integration-pill"><span class="pill-icon">&#128233;</span> SMS Gateway</div>
+    <div class="integration-pill"><span class="pill-icon">&#127963;</span> Government Portals</div>
+    <div class="integration-pill"><span class="pill-icon">&#128203;</span> Insurance TPAs</div>
+    <div class="integration-pill"><span class="pill-icon">&#128300;</span> Lab Equipment (LIS)</div>
+  </div>
+</section>
+
+<div class="divider-line"></div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- SECURITY & COMPLIANCE                      -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="security-section" id="security">
+  <div class="security-header reveal">
+    <div class="section-label">Security &amp; Compliance</div>
+    <h2 class="section-title">Your Patient Data Deserves<br>Fort Knox-Level Protection</h2>
+  </div>
+
+  <div class="security-card reveal">
+    <div class="security-grid">
+      <div class="security-col">
+        <div class="security-icon">&#128274;</div>
+        <div class="security-col-title">Data Encryption</div>
+        <ul class="security-col-list">
+          <li>AES-256 encryption at rest</li>
+          <li>TLS 1.3 for data in transit</li>
+          <li>End-to-end encrypted backups</li>
+          <li>Encrypted database fields for PHI</li>
+        </ul>
+      </div>
+      <div class="security-col">
+        <div class="security-icon">&#128100;</div>
+        <div class="security-col-title">Access Control</div>
+        <ul class="security-col-list">
+          <li>Role-based access (RBAC)</li>
+          <li>Two-factor authentication (2FA)</li>
+          <li>Session management &amp; timeout</li>
+          <li>IP whitelisting for admin access</li>
+        </ul>
+      </div>
+      <div class="security-col">
+        <div class="security-icon">&#128220;</div>
+        <div class="security-col-title">Compliance</div>
+        <ul class="security-col-list">
+          <li>ABDM / NHA compliant</li>
+          <li>HIPAA-equivalent practices</li>
+          <li>Comprehensive audit trails</li>
+          <li>Data residency within India</li>
+        </ul>
+      </div>
+      <div class="security-col">
+        <div class="security-icon">&#9962;</div>
+        <div class="security-col-title">Infrastructure</div>
+        <ul class="security-col-list">
+          <li>AWS India (Mumbai region)</li>
+          <li>99.99% uptime SLA</li>
+          <li>Automated daily backups</li>
+          <li>Disaster recovery &amp; failover</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -2301,76 +2162,19 @@
 
 <div class="divider-line"></div>
 
-<!-- TESTIMONIALS -->
-<section class="testimonials" id="testimonials">
-  <div class="testimonials-inner">
-    <div class="testimonials-header reveal">
-      <div class="section-label">Customer Stories</div>
-      <h2 class="section-title">Loved by Hospitals,<br>Trusted by Educators.</h2>
-    </div>
-    <div class="testimonials-grid">
-      <div class="testimonial-card reveal">
-        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="testimonial-text">DigiDoc completely transformed our multi-specialty hospital operations. From OPD to billing to pharmacy &mdash; everything is now seamlessly connected. The telemedicine module alone helped us reach 3 districts we couldn't serve before.</p>
-        <div class="testimonial-author">
-          <div class="author-avatar">DK</div>
-          <div>
-            <div class="author-name">Dr. Dinesh Kumar</div>
-            <div class="author-role">Medical Director, Synapse Hospitals, Chennai</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card reveal">
-        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="testimonial-text">Docademy made it incredibly easy to roll out our CME program to 800+ resident doctors across five colleges. The analytics dashboard tells us exactly where each learner needs support. Truly enterprise-grade but surprisingly easy to use.</p>
-        <div class="testimonial-author">
-          <div class="author-avatar">PP</div>
-          <div>
-            <div class="author-name">Prof. Priya Parthasarathy</div>
-            <div class="author-role">Dean of Academics, Metro Medical College, Hyderabad</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card reveal">
-        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="testimonial-text">We switched from a legacy HMS to DigiDoc in under 3 weeks with zero downtime. The ABDM integration was seamless, and our front-desk team loves how intuitive the appointment and billing system is.</p>
-        <div class="testimonial-author">
-          <div class="author-avatar">RV</div>
-          <div>
-            <div class="author-name">Rahul Venkatesh</div>
-            <div class="author-role">Hospital Administrator, Aarogya Clinic Network, Bengaluru</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TRUSTED BY -->
-<section class="trusted-section reveal">
-  <div class="trusted-label">Trusted by leading healthcare institutions across India</div>
-  <div class="trusted-logos">
-    <div class="trusted-logo">SYNAPSE HOSPITALS</div>
-    <div class="trusted-logo">METRO MEDICAL COLLEGE</div>
-    <div class="trusted-logo">AAROGYA NETWORK</div>
-    <div class="trusted-logo">HEALIFY CLINICS</div>
-    <div class="trusted-logo">NOVA DIAGNOSTICS</div>
-  </div>
-</section>
-
-<div class="divider-line"></div>
-
-<!-- PRICING -->
+<!-- ═══════════════════════════════════════════ -->
+<!-- PRICING                                    -->
+<!-- ═══════════════════════════════════════════ -->
 <section class="pricing-section" id="pricing">
   <div class="pricing-header reveal">
-    <div class="section-label">Simple, Transparent Pricing</div>
-    <h2 class="section-title">Plans That Scale<br>With Your Practice</h2>
-    <p class="section-subtitle centered">Start small, grow big. Every plan includes onboarding support, training, and our 99.9% uptime guarantee.</p>
+    <div class="section-label">DigiDoc Pricing</div>
+    <h2 class="section-title">Simple, Transparent Pricing<br>for Every Hospital Size</h2>
+    <p class="section-subtitle centered">No hidden fees. No per-user charges. Start with what you need, scale when you&rsquo;re ready.</p>
     <div class="pricing-toggle">
-      <span class="active" id="toggle-monthly">Monthly</span>
+      <span id="toggle-monthly" class="active">Monthly</span>
       <div class="toggle-switch" id="toggle-switch" onclick="togglePricing()"></div>
       <span id="toggle-annual">Annual</span>
-      <span class="save-badge">SAVE 20%</span>
+      <span class="save-badge">Save 20%</span>
     </div>
   </div>
 
@@ -2379,7 +2183,7 @@
     <!-- STARTER -->
     <div class="pricing-card reveal">
       <div class="pricing-plan">Starter</div>
-      <div class="pricing-desc">Perfect for single clinics and small hospitals getting started.</div>
+      <div class="pricing-desc">Perfect for clinics and small hospitals getting started with digital transformation.</div>
       <div class="pricing-amount">
         <span class="pricing-currency">&#8377;</span>
         <span class="pricing-value" data-monthly="9999" data-annual="7999">9,999</span>
@@ -2387,21 +2191,22 @@
       <div class="pricing-period">per month</div>
       <div class="pricing-note">Up to 50 beds &middot; Single branch</div>
       <ul class="pricing-features">
-        <li>DigiDoc HMS Core Modules</li>
-        <li>OPD, IPD &amp; Billing</li>
-        <li>Basic EMR &amp; Prescriptions</li>
-        <li>5 User Accounts</li>
+        <li>OPD &amp; IPD Management</li>
+        <li>Smart EMR &amp; Prescriptions</li>
+        <li>Billing &amp; GST Invoicing</li>
+        <li>Basic Lab Integration</li>
+        <li>Up to 25 Users</li>
         <li>Email Support</li>
-        <li>ABDM Integration</li>
+        <li>ABDM Compliance</li>
       </ul>
-      <button class="pricing-btn pricing-btn-outline">Get Started</button>
+      <button class="pricing-btn pricing-btn-outline" onclick="openModal('demo-modal','digidoc')">Get Started</button>
     </div>
 
     <!-- PROFESSIONAL -->
     <div class="pricing-card featured reveal">
       <div class="pricing-popular">Most Popular</div>
       <div class="pricing-plan">Professional</div>
-      <div class="pricing-desc">Full-suite solution for growing hospitals and medical colleges.</div>
+      <div class="pricing-desc">Full-suite solution for growing hospitals with multi-department needs.</div>
       <div class="pricing-amount">
         <span class="pricing-currency">&#8377;</span>
         <span class="pricing-value" data-monthly="29999" data-annual="23999">29,999</span>
@@ -2411,13 +2216,13 @@
       <ul class="pricing-features">
         <li>Everything in Starter</li>
         <li>Telemedicine Module</li>
-        <li>Pharmacy &amp; Lab Integration</li>
-        <li>Docademy LMS Access</li>
+        <li>Pharmacy &amp; Full Lab (LIS)</li>
+        <li>Radiology (RIS/PACS)</li>
+        <li>Insurance TPA Integration</li>
         <li>Unlimited Users</li>
         <li>Priority 24/7 Support</li>
-        <li>Custom Reports &amp; Analytics</li>
       </ul>
-      <button class="pricing-btn pricing-btn-solid">Get Started</button>
+      <button class="pricing-btn pricing-btn-solid" onclick="openModal('demo-modal','digidoc')">Get Started</button>
     </div>
 
     <!-- ENTERPRISE -->
@@ -2438,7 +2243,7 @@
         <li>White-label Options</li>
         <li>Advanced Security &amp; Compliance</li>
       </ul>
-      <button class="pricing-btn pricing-btn-gold">Contact Sales</button>
+      <button class="pricing-btn pricing-btn-teal-outline" onclick="openModal('demo-modal','enterprise')">Contact Sales</button>
     </div>
 
   </div>
@@ -2446,91 +2251,24 @@
 
 <div class="divider-line"></div>
 
-<!-- FAQ -->
-<section class="faq-section" id="faq">
-  <div class="faq-header reveal">
-    <div class="section-label">Frequently Asked Questions</div>
-    <h2 class="section-title">Got Questions?<br>We've Got Answers.</h2>
-  </div>
-  <div class="faq-list">
-
-    <div class="faq-item reveal">
-      <button class="faq-question" onclick="toggleFaq(this)">
-        <span>How long does it take to go live with DigiDoc?</span>
-        <div class="faq-chevron">&#9660;</div>
-      </button>
-      <div class="faq-answer">
-        <div class="faq-answer-inner">Most clinics go live within 1&ndash;2 weeks. For multi-specialty hospitals, a typical deployment takes 3&ndash;4 weeks including data migration from legacy systems, staff training, and parallel-run testing. Our onboarding team handles the heavy lifting so your clinical operations are never disrupted.</div>
-      </div>
-    </div>
-
-    <div class="faq-item reveal">
-      <button class="faq-question" onclick="toggleFaq(this)">
-        <span>Is our patient data safe and compliant?</span>
-        <div class="faq-chevron">&#9660;</div>
-      </button>
-      <div class="faq-answer">
-        <div class="faq-answer-inner">Absolutely. JKS Medtech follows industry-standard security practices including AES-256 encryption at rest and TLS 1.3 in transit, role-based access controls, regular penetration testing, and audit logging. We are ABDM-compliant, NHA-ready, and follow HIPAA-equivalent data handling practices. Data is hosted on AWS/Azure servers within India.</div>
-      </div>
-    </div>
-
-    <div class="faq-item reveal">
-      <button class="faq-question" onclick="toggleFaq(this)">
-        <span>Can I use Docademy without DigiDoc?</span>
-        <div class="faq-chevron">&#9660;</div>
-      </button>
-      <div class="faq-answer">
-        <div class="faq-answer-inner">Yes. Both products work independently. Docademy is a standalone LMS perfect for medical colleges, CME providers, and healthcare training programs. However, when used together with DigiDoc, you unlock unique features like clinical-case-based learning linked to real anonymized patient data, and staff competency tracking tied to hospital performance metrics.</div>
-      </div>
-    </div>
-
-    <div class="faq-item reveal">
-      <button class="faq-question" onclick="toggleFaq(this)">
-        <span>Do you provide migration support from our existing HMS?</span>
-        <div class="faq-chevron">&#9660;</div>
-      </button>
-      <div class="faq-answer">
-        <div class="faq-answer-inner">Yes. We provide full data migration support from any existing HMS, EHR, or paper-based system. Our migration team maps your existing data structures, validates the import, and runs parallel testing to ensure zero data loss. We've successfully migrated hospitals from over 15 different legacy systems.</div>
-      </div>
-    </div>
-
-    <div class="faq-item reveal">
-      <button class="faq-question" onclick="toggleFaq(this)">
-        <span>What kind of support do you offer?</span>
-        <div class="faq-chevron">&#9660;</div>
-      </button>
-      <div class="faq-answer">
-        <div class="faq-answer-inner">Starter plans include email support with 24-hour response times. Professional and Enterprise plans include 24/7 phone and chat support, a dedicated customer success manager, quarterly business reviews, and on-site training sessions. We also maintain a comprehensive knowledge base and video tutorial library.</div>
-      </div>
-    </div>
-
-    <div class="faq-item reveal">
-      <button class="faq-question" onclick="toggleFaq(this)">
-        <span>Can JKS Medtech integrate with existing hospital equipment and third-party systems?</span>
-        <div class="faq-chevron">&#9660;</div>
-      </button>
-      <div class="faq-answer">
-        <div class="faq-answer-inner">Yes. DigiDoc supports HL7 FHIR, REST APIs, and direct integrations with popular lab equipment (LIS), radiology systems (PACS), payment gateways, insurance TPA portals, and government health portals like ABHA and CoWIN. Our Enterprise plan includes custom integration development for any specialized equipment or workflow.</div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- CTA -->
+<!-- ═══════════════════════════════════════════ -->
+<!-- CTA                                        -->
+<!-- ═══════════════════════════════════════════ -->
 <section class="cta-section" id="contact">
   <div class="cta-card reveal">
     <div class="section-label" style="margin-bottom:20px;position:relative">Ready to Transform?</div>
-    <h2 class="cta-title">Start Your Digital Health Journey <em style="color:var(--teal);font-style:italic">Today</em></h2>
-    <p class="cta-sub">Whether you're a 20-bed clinic or a 500-bed teaching hospital, JKS Medtech has a solution that fits. Book a personalized demo with our product specialists.</p>
+    <h2 class="cta-title">Ready to Transform<br>Your <em style="color:var(--teal);font-style:italic">Hospital</em>?</h2>
+    <p class="cta-sub">Whether you&rsquo;re a 20-bed clinic or a 500-bed multi-specialty hospital, DigiDoc adapts to your workflows. Book a personalized demo with our product specialists or call us directly.</p>
     <div class="cta-actions">
-      <button class="btn-teal btn-xl">Book DigiDoc Demo</button>
-      <button class="btn-gold btn-xl">Explore Docademy</button>
+      <button class="btn-teal btn-xl" onclick="openModal('demo-modal','digidoc')">Book a Demo</button>
+      <a href="tel:+919876543210" class="btn-call">Call Us: +91 98765 43210</a>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ═══════════════════════════════════════════ -->
+<!-- FOOTER                                     -->
+<!-- ═══════════════════════════════════════════ -->
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
@@ -2560,20 +2298,20 @@
       <div class="footer-col-title">Products</div>
       <ul class="footer-links">
         <li><a href="/digidoc/">DigiDoc HMS</a></li>
-        <li><a href="/digidoc/#modules">DigiDoc Modules</a></li>
+        <li><a href="#modules">DigiDoc Modules</a></li>
         <li><a href="/docademy/">Docademy LMS</a></li>
-        <li><a href="/docademy/#features">Docademy Features</a></li>
-        <li><a href="/digidoc/#integrations">Integrations</a></li>
+        <li><a href="#integrations">Integrations</a></li>
+        <li><a href="#pricing">Pricing</a></li>
       </ul>
     </div>
     <div>
       <div class="footer-col-title">Company</div>
       <ul class="footer-links">
-        <li><a href="#">About JKS</a></li>
-        <li><a href="#">Our Team</a></li>
-        <li><a href="#">Careers</a></li>
-        <li><a href="#">Press</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="/">About JKS</a></li>
+        <li><a href="/">Our Team</a></li>
+        <li><a href="/">Careers</a></li>
+        <li><a href="/">Press</a></li>
+        <li><a href="#contact" class="footer-contact-link">Contact</a></li>
       </ul>
     </div>
     <div>
@@ -2596,12 +2334,14 @@
   </div>
 </footer>
 
-<!-- DEMO FORM MODAL -->
+<!-- ═══════════════════════════════════════════ -->
+<!-- DEMO FORM MODAL                            -->
+<!-- ═══════════════════════════════════════════ -->
 <div class="modal-overlay" id="demo-modal">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal('demo-modal')" aria-label="Close">&times;</button>
     <div class="modal-title">Book a Demo</div>
-    <div class="modal-subtitle">Fill in your details and our product specialist will reach out within 24 hours to schedule a personalized walkthrough.</div>
+    <div class="modal-subtitle">Fill in your details and our product specialist will reach out within 24 hours to schedule a personalized DigiDoc walkthrough.</div>
     <form id="demo-form" onsubmit="handleDemoSubmit(event)">
       <div class="form-row">
         <div class="form-group">
@@ -2629,7 +2369,7 @@
         <div class="form-group">
           <label class="form-label" for="demo-product">Interested In</label>
           <select class="form-select" id="demo-product">
-            <option value="digidoc">DigiDoc (Cloud Hospital)</option>
+            <option value="digidoc" selected>DigiDoc (Cloud Hospital)</option>
             <option value="docademy">Docademy (Medical LMS)</option>
             <option value="both">Both Products</option>
             <option value="enterprise">Enterprise / Custom</option>
@@ -2641,8 +2381,8 @@
         <select class="form-select" id="demo-size">
           <option value="">Select size...</option>
           <option value="small">Up to 50 beds / Small clinic</option>
-          <option value="medium">50–200 beds / Mid-size hospital</option>
-          <option value="large">200–500 beds / Large hospital</option>
+          <option value="medium">50&ndash;200 beds / Mid-size hospital</option>
+          <option value="large">200&ndash;500 beds / Large hospital</option>
           <option value="chain">500+ beds / Hospital chain</option>
           <option value="college">Medical college / University</option>
         </select>
@@ -2652,22 +2392,10 @@
         <textarea class="form-textarea" id="demo-message" placeholder="Tell us about your current setup, challenges, or specific requirements..."></textarea>
       </div>
       <button class="form-submit" type="submit" id="demo-submit-btn">
-        Request Demo
+        Request DigiDoc Demo
         <span class="spinner"></span>
       </button>
     </form>
-  </div>
-</div>
-
-<!-- VIDEO MODAL -->
-<div class="modal-overlay" id="video-modal">
-  <div class="video-box">
-    <button class="video-close" onclick="closeModal('video-modal')" aria-label="Close">&times;</button>
-    <div class="video-placeholder">
-      <div class="play-icon">&#9654;</div>
-      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:18px;color:var(--white);margin-bottom:8px">Product Overview</div>
-      <div style="font-size:13px">Coming Soon &mdash; Video walkthrough of DigiDoc &amp; Docademy</div>
-    </div>
   </div>
 </div>
 
@@ -2683,6 +2411,9 @@
 <!-- BACK TO TOP -->
 <button class="back-to-top" id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">&#8593;</button>
 
+<!-- ═══════════════════════════════════════════ -->
+<!-- JAVASCRIPT                                 -->
+<!-- ═══════════════════════════════════════════ -->
 <script>
 // ── MOBILE MENU ──
 const hamburger = document.getElementById('hamburger');
@@ -2756,13 +2487,13 @@ function createParticle() {
     angle: Math.random() * Math.PI * 2,
     drift: (Math.random() - 0.5) * 0.005,
     opacity: Math.random() * 0.4 + 0.1,
-    color: Math.random() > 0.5 ? '#00d4c8' : '#c9a84c'
+    color: Math.random() > 0.3 ? '#00d4c8' : '#c9a84c'
   };
 }
 
 function initParticles() {
   particles = [];
-  const count = Math.min(Math.floor((W * H) / 14000), 120);
+  const count = Math.min(Math.floor((W * H) / 18000), 90);
   for (let i = 0; i < count; i++) particles.push(createParticle());
 }
 
@@ -2771,7 +2502,7 @@ initParticles();
 function animateParticles() {
   ctx.clearRect(0, 0, W, H);
 
-  // faint radial glow
+  // Faint radial glow
   const grad = ctx.createRadialGradient(W/2, H*0.3, 0, W/2, H*0.3, W*0.5);
   grad.addColorStop(0, 'rgba(0,212,200,0.03)');
   grad.addColorStop(1, 'transparent');
@@ -2860,9 +2591,9 @@ const statsObs = new IntersectionObserver((entries) => {
       const nums = document.querySelectorAll('.stat-num');
       const data = [
         { val: 200, suffix: '+' },
-        { val: 50, suffix: 'k+' },
+        { val: 15, suffix: 'L+' },
         { val: 99.9, suffix: '%' },
-        { val: 12, suffix: '+' }
+        { val: 50, suffix: '+' }
       ];
       nums.forEach((el, i) => {
         if (data[i]) animateCounter(el, data[i].val, data[i].suffix);
@@ -2874,18 +2605,6 @@ const statsObs = new IntersectionObserver((entries) => {
 
 const statsEl = document.querySelector('.hero-stats');
 if (statsEl) statsObs.observe(statsEl);
-
-// ── FAQ TOGGLE ──
-function toggleFaq(btn) {
-  const item = btn.closest('.faq-item');
-  const wasOpen = item.classList.contains('open');
-
-  // Close all
-  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-
-  // Toggle clicked
-  if (!wasOpen) item.classList.add('open');
-}
 
 // ── PRICING TOGGLE ──
 let isAnnual = false;
@@ -3023,7 +2742,7 @@ function handleDemoSubmit(e) {
     };
 
     // Log to console (replace with actual API call)
-    console.log('Demo Request Submitted:', data);
+    console.log('DigiDoc Demo Request Submitted:', data);
 
     closeModal('demo-modal');
     showToast('Demo Requested!', "Thank you, " + data.name.split(' ')[0] + "! Our team will contact you within 24 hours.");
@@ -3032,52 +2751,12 @@ function handleDemoSubmit(e) {
 
 // ── WIRE CTA BUTTONS ──
 document.addEventListener('DOMContentLoaded', function() {
-  // Product card buttons
-  document.querySelectorAll('.product-card').forEach(card => {
-    card.querySelectorAll('.card-actions button').forEach(btn => {
-      const text = btn.textContent.trim().toLowerCase();
-      if (text.includes('demo')) {
-        btn.addEventListener('click', () => openModal('demo-modal', 'digidoc'));
-      } else if (text.includes('trial') || text.includes('learning')) {
-        btn.addEventListener('click', () => openModal('demo-modal', 'docademy'));
-      }
-    });
-  });
-
-  // Pricing buttons
-  document.querySelectorAll('.pricing-btn').forEach(btn => {
-    const text = btn.textContent.trim().toLowerCase();
-    if (text.includes('contact sales')) {
-      btn.addEventListener('click', () => openModal('demo-modal', 'enterprise'));
-    } else {
-      btn.addEventListener('click', () => openModal('demo-modal', 'both'));
-    }
-  });
-
-  // CTA section buttons
-  const ctaSection = document.querySelector('.cta-section');
-  if (ctaSection) {
-    const ctaBtns = ctaSection.querySelectorAll('button');
-    ctaBtns.forEach(btn => {
-      const text = btn.textContent.trim().toLowerCase();
-      if (text.includes('digidoc')) {
-        btn.addEventListener('click', () => openModal('demo-modal', 'digidoc'));
-      } else if (text.includes('docademy')) {
-        btn.addEventListener('click', () => openModal('demo-modal', 'docademy'));
-      } else {
-        btn.addEventListener('click', () => openModal('demo-modal', 'both'));
-      }
-    });
-  }
-
   // Footer "Contact" link
-  document.querySelectorAll('.footer-links a').forEach(link => {
-    if (link.textContent.trim().toLowerCase() === 'contact') {
-      link.addEventListener('click', function(e) {
-        e.preventDefault();
-        openModal('demo-modal', 'both');
-      });
-    }
+  document.querySelectorAll('.footer-contact-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      openModal('demo-modal', 'digidoc');
+    });
   });
 });
 
@@ -3097,12 +2776,14 @@ function updateActiveNav() {
     if (el.offsetTop <= scrollPos) currentId = el.id;
   });
   navLinks.forEach(link => {
-    link.classList.toggle('active', link.getAttribute('href') === '#' + currentId);
+    const href = link.getAttribute('href');
+    if (href.startsWith('#')) {
+      link.classList.toggle('active', href === '#' + currentId);
+    }
   });
 }
 
 window.addEventListener('scroll', updateActiveNav, { passive: true });
-updateActiveNav();
 
 // ── BACK TO TOP BUTTON ──
 const backToTop = document.getElementById('back-to-top');
